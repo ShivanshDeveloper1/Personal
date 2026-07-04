@@ -10,6 +10,7 @@ import ImpactMetrics from "./components/ImpactMetrics";
 import HomepageServices from "./components/HomepageServices/HomepageServices";
 import BlogsWrapper from "./components/(Blog)/(homepage)/BlogsWrapper";
 import VideoService from "./components/VideoService";
+import PersonalImage from "@/components/(personal)/PersonalImage";
 
 // Hyper-Targeted Homepage Metadata
 export const metadata: Metadata = {
@@ -123,6 +124,9 @@ export default function Home() {
       <Hero />
       <ImpactMetrics />
       <Projects />
+      <PersonalImage />
+
+
       <HomepageServices />
       <VideoService />
       <Testimonials />
