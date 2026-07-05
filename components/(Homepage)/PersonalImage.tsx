@@ -59,7 +59,7 @@ const PersonalImage = () => {
           WEB DEVELOPMENT
         </h1>
         
-        <p className='text-4xl font-extrabold tracking-tight leading-tight mt-2 text-white'> 
+        <p className='text-4xl font-extrabold tracking-tight leading-tight mt-2 dark:text-white text-black'> 
           <span className='bg-gradient-to-r from-cyan-400 via-blue-500 to-indigo-600 bg-clip-text text-transparent'>
             Web Scraping 
           </span> 
@@ -68,7 +68,7 @@ const PersonalImage = () => {
         
         <hr className='font-bold my-4 border-gray-700' />
 
-        <p className='italic text-gray-300 font-medium leading-relaxed'>
+        <p className='italic text-black dark:text-gray-300 font-medium leading-relaxed '>
           I build intelligent web scraping solutions using Puppeteer and Node.js to automate repetitive tasks, collect structured data, monitor website changes, and integrate the extracted information into APIs, dashboards, and databases. From e-commerce products to job listings and business directories, I transform websites into usable data. 
         </p>
 

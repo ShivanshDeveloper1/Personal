@@ -10,7 +10,7 @@ import ImpactMetrics from "./components/ImpactMetrics";
 import HomepageServices from "./components/HomepageServices/HomepageServices";
 import BlogsWrapper from "./components/(Blog)/(homepage)/BlogsWrapper";
 import VideoService from "./components/VideoService";
-import PersonalImage from "@/components/(personal)/PersonalImage";
+import PersonalImage from "@/components/(Homepage)/PersonalImage";
 
 // Hyper-Targeted Homepage Metadata
 export const metadata: Metadata = {
