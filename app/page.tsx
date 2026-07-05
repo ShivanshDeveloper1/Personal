@@ -11,6 +11,7 @@ import HomepageServices from "./components/HomepageServices/HomepageServices";
 import BlogsWrapper from "./components/(Blog)/(homepage)/BlogsWrapper";
 import VideoService from "./components/VideoService";
 import PersonalImage from "@/components/(Homepage)/PersonalImage";
+import Faq from "@/components/(Homepage)/Faq";
 
 // Hyper-Targeted Homepage Metadata
 export const metadata: Metadata = {
@@ -131,6 +132,8 @@ export default function Home() {
       <VideoService />
       <Testimonials />
       <BlogsWrapper />
+
+      <Faq />
       
       <Newsletter />
     </>
