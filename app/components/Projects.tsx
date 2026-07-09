@@ -1,12 +1,28 @@
 "use client";
 
+import { useState } from "react"; // Added to handle selection state
 import { projects } from "@/contents/projects";
 import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, cardHoverSmall } from "@/utils/animations";
+import ProjectOverview from "@/components/(ProjectOverview)/ProjectOverview";
+
 
 export default function Projects() {
+  // Track the active project object. Null means show the grid grid.
+  const [selectedProject, setSelectedProject] = useState(null);
+
+  // If a project is selected, render the overview component instead
+  if (selectedProject) {
+    return (
+      <ProjectOverview 
+        project={selectedProject} 
+        onBack={() => setSelectedProject(null)} 
+      />
+    );
+  }
+
   return (
     <section className="py-20">
       <div className="container max-w-7xl mx-auto px-4">
@@ -26,19 +42,19 @@ export default function Projects() {
           {projects.map((project) => (
             <motion.article
               key={project.title}
-              className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6"
+              className="bg-white dark:bg-dark/50 rounded-lg shadow-md p-6 cursor-pointer" // Added cursor-pointer
+              onClick={() => setSelectedProject(project)} // Sets state when the card is clicked
               variants={fadeInUp}
               {...cardHoverSmall}
             >
               <div className="relative aspect-video mb-4 rounded-lg overflow-hidden">
-
-              {project.flagship && (
-  <div className="absolute top-3 left-3 z-10">
-    <span className="px-3 py-2 text-xs font-semibold rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg shadow-pink-500/30 animate-pulse">
-      🚀 Flagship
-    </span>
-  </div>
-)}
+                {project.flagship && (
+                  <div className="absolute top-3 left-3 z-10">
+                    <span className="px-3 py-2 text-xs font-semibold rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg shadow-pink-500/30 animate-pulse">
+                      🚀 Flagship
+                    </span>
+                  </div>
+                )}
                 <Image
                   src={project.image}
                   alt={project.title}
@@ -84,6 +100,7 @@ export default function Projects() {
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.4 }}
+                onClick={(e) => e.stopPropagation()} // Prevents clicking links from triggering the card preview state toggle
               >
                 <motion.a
                   href={project.githubLink}

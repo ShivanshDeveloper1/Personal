@@ -5,8 +5,23 @@ import Image from "next/image";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer, cardHoverSmall } from "@/utils/animations";
+import { useState } from "react";
+import ProjectOverview from "@/components/(ProjectOverview)/ProjectOverview";
 
 export default function ProjectsClient() {
+ const [selectedProject, setSelectedProject] = useState(null);
+  // If a project card was clicked, show the overview layout instead
+  if (selectedProject) {
+    return (
+      <ProjectOverview 
+        project={selectedProject} 
+        onBack={() => setSelectedProject(null)} 
+      />
+    );
+  }
+
+
+
   return (
     <div className="container max-w-7xl mx-auto py-16 px-4">
       <motion.h1
@@ -36,7 +51,8 @@ export default function ProjectsClient() {
         {projects.map((project, index) => (
           <motion.div
             key={index}
-            className="relative flex flex-col justify-between bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-xl border border-gray-100 dark:border-gray-800 shadow-md overflow-hidden h-full group"
+            onClick={() => setSelectedProject(project)} // Trigger on-click handle
+           className="cursor-pointer relative flex flex-col justify-between bg-white dark:bg-gray-900/40 backdrop-blur-sm rounded-xl border border-gray-100 dark:border-gray-800 shadow-md overflow-hidden h-full group"
             variants={fadeInUp}
             {...cardHoverSmall}
           >
