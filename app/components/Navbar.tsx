@@ -9,20 +9,32 @@ import {
 import { useTheme } from "../context/ThemeContext";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { ChevronDown } from "lucide-react";
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mobileSubMenuOpen, setMobileSubMenuOpen] = useState<string | null>(null);
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
+    setMobileSubMenuOpen(null); // Reset submenus when closing
   };
 
-  // REMOVED "Blogs" from here to clean up the UI
+  const toggleMobileSubMenu = (label: string) => {
+    setMobileSubMenuOpen(mobileSubMenuOpen === label ? null : label);
+  };
+
   const menuItems = [
-    // { href: "/", label: "Home" },
     { href: "/about", label: "About" },
-    { href: "/service", label: "Services" },
+    {
+      href: "/service",
+      label: "Services",
+      subMenu: [
+        { href: "/service/social-media-service", label: "Social Media Marketing" },
+        { href: "/service/web-development", label: "Web Development" },
+      ],
+    },
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
     { href: "/download", label: "Resume" },
@@ -40,26 +52,58 @@ export default function Navbar() {
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">
             {menuItems.map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
-              >
-                {item.label}
-              </Link>
-            ))}
+              <div key={item.href} className="relative group py-2">
+                <Link
+                  href={item.href}
+                  className="text-sm font-medium text-gray-600 dark:text-gray-300 hover:text-primary transition-colors"
+                >
+                  {item.label}
+                </Link>
 
-            {/* Special Prediction Button - Desktop */}
-            {/* <Link
-              href="/neet-result-predictor"
-              className="relative inline-flex items-center px-5 py-2 text-sm font-bold text-white transition-transform hover:scale-105 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-[0_0_20px_rgba(168,85,247,0.4)]"
-            >
-              Prediction
-              <span className="absolute -top-1 -right-1 flex h-3 w-3">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-pink-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-3 w-3 bg-pink-500"></span>
-              </span>
-            </Link> */}
+                {item.subMenu && (
+                  <div
+                    className="
+                    absolute
+                    left-0
+                    top-full
+                    mt-1
+                    hidden
+                    group-hover:block
+                    min-w-[260px]
+                    rounded-xl
+                    bg-white
+                    dark:bg-neutral-900
+                    shadow-2xl
+                    border
+                    border-gray-200
+                    dark:border-neutral-800
+                    overflow-hidden
+                    "
+                  >
+                    {item.subMenu.map((sub) => (
+                      <Link
+                        key={sub.href}
+                        href={sub.href}
+                        className="
+                        block
+                        px-5
+                        py-3
+                        text-sm
+                        text-gray-700
+                        dark:text-gray-300
+                        hover:bg-gray-100
+                        dark:hover:bg-neutral-800
+                        hover:text-primary
+                        transition
+                        "
+                      >
+                        {sub.label}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
 
             <motion.button
               onClick={toggleTheme}
@@ -100,21 +144,60 @@ export default function Navbar() {
               transition={{ duration: 0.3 }}
               className="md:hidden overflow-hidden bg-white dark:bg-dark border-t dark:border-gray-800"
             >
-              <div className="py-4 space-y-4 px-2">
+              <div className="py-4 space-y-2 px-2">
                 {menuItems.map((item, index) => (
                   <motion.div
                     key={item.href}
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.05 }}
+                    className="w-full"
                   >
-                    <Link
-                      href={item.href}
-                      className="block py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors"
-                      onClick={() => setIsMobileMenuOpen(false)}
-                    >
-                      {item.label}
-                    </Link>
+                    {item.subMenu ? (
+                      <div>
+                        <button
+                          onClick={() => toggleMobileSubMenu(item.label)}
+                          className="flex items-center justify-between w-full py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 transition-colors text-left font-medium"
+                        >
+                          <span>{item.label}</span>
+                          <ChevronDown
+                            className={`w-4 h-4 transition-transform duration-200 ${
+                              mobileSubMenuOpen === item.label ? "rotate-180" : ""
+                            }`}
+                          />
+                        </button>
+                        
+                        <AnimatePresence>
+                          {mobileSubMenuOpen === item.label && (
+                            <motion.div
+                              initial={{ opacity: 0, height: 0 }}
+                              animate={{ opacity: 1, height: "auto" }}
+                              exit={{ opacity: 0, height: 0 }}
+                              className="pl-6 pr-4 overflow-hidden space-y-1 mt-1"
+                            >
+                              {item.subMenu.map((sub) => (
+                                <Link
+                                  key={sub.href}
+                                  href={sub.href}
+                                  className="block py-2 px-4 text-sm rounded-md text-gray-600 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors"
+                                  onClick={() => setIsMobileMenuOpen(false)}
+                                >
+                                  {sub.label}
+                                </Link>
+                              ))}
+                            </motion.div>
+                          )}
+                        </AnimatePresence>
+                      </div>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className="block py-2 px-4 rounded-lg text-gray-700 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors font-medium"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
                   </motion.div>
                 ))}
 
@@ -122,8 +205,8 @@ export default function Navbar() {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: menuItems.length * 0.1 }}
-                  className="px-2 pb-2"
+                  transition={{ delay: menuItems.length * 0.05 }}
+                  className="px-2 pt-2"
                 >
                   <Link
                     href="/neet-result-predictor"
@@ -142,14 +225,15 @@ export default function Navbar() {
                 <motion.div
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: (menuItems.length + 1) * 0.1 }}
+                  transition={{ delay: (menuItems.length + 1) * 0.05 }}
+                  className="pt-2"
                 >
                   <button
                     onClick={() => {
                       toggleTheme();
                       setIsMobileMenuOpen(false);
                     }}
-                    className="flex w-full items-center py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 hover:text-primary transition-colors"
+                    className="flex w-full items-center py-2 px-4 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800 text-gray-700 dark:text-gray-300 hover:text-primary transition-colors"
                   >
                     {theme === "dark" ? (
                       <>
