@@ -7,6 +7,7 @@ import Footer from "./components/Footer";
 import Script from "next/script"; // ✅ Needed for Analytics & Schema
 import WhatsAppButton from "./components/common/WhatsAppButton";
 import LayoutWrapper from "./components/LayoutWrapper";
+import { Anton } from "next/font/google";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -17,6 +18,11 @@ const geistMono = Geist_Mono({
   variable: "--font-geist-mono",
   subsets: ["latin"],
 });
+
+const anton = Anton({
+    subsets: ["latin"],
+  weight: "400",
+})
 
 export const metadata: Metadata = {
     title: {
@@ -201,7 +207,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`bg-white transition-colors dark:bg-gray-900 dark:text-white ${geistSans.variable} ${geistMono.variable}`}
+        className={`bg-white transition-colors dark:bg-gray-900 dark:text-white ${geistSans.variable} ${geistMono.variable}   `}
       >
         {/* ✅ 1. Load Google Analytics Library */}
         <Script
