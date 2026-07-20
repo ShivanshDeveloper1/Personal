@@ -208,17 +208,7 @@ export default function Navbar() {
                   transition={{ delay: menuItems.length * 0.05 }}
                   className="px-2 pt-2"
                 >
-                  <Link
-                    href="/neet-result-predictor"
-                    className="relative flex justify-center items-center py-3 px-4 rounded-lg text-white font-bold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 shadow-lg shadow-purple-500/30"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                  >
-                    Prediction
-                    <span className="ml-2 flex h-2.5 w-2.5 relative">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-white"></span>
-                    </span>
-                  </Link>
+            
                 </motion.div>
 
                 {/* Theme Toggle Mobile */}
