@@ -46,7 +46,7 @@ const Page = () => {
 
 
     <main className="min-h-screen bg-white dark:bg-slate-900 transition-colors duration-300 max-w-7xl mx-auto px-6 lg:px-8 py-12 md:py-20 lg:py-24 overflow-hidden">
-      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16">
+      <div className="flex flex-col-reverse lg:flex-row items-center justify-between gap-10 lg:gap-16 pt-12">
         
         {/* Text Content - Wrapped in motion.div to control the stagger */}
         <motion.div 

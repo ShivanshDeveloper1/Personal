@@ -28,7 +28,7 @@ export default function AboutClient() {
   return (
     <div className="container max-w-7xl mx-auto py-16 px-4 overflow-hidden">
       {/* 1. HERO SECTION */}
-      <HeroDiv className="text-center mb-16">
+      <HeroDiv className="text-center mb-16 pt-24">
         <h1 className="text-4xl md:text-6xl font-extrabold mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-indigo-600 bg-clip-text text-transparent leading-tight">
           Shivansh Singh | Full Stack Web Developer 
         </h1>

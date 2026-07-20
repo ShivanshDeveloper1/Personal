@@ -91,20 +91,18 @@ const SocialEfforts = () => {
         </svg>
 
         <section className="max-w-6xl mx-auto px-4 relative z-10 flex flex-col items-center">
-          <h2
-            className={`${anton.className} text-5xl md:text-7xl text-white shadow-xl tracking-tight text-center mb-6`}
-          >
-            Sociallyin: Social-First Since 2011
-          </h2>
+       <h2
+  className={`${anton.className} text-5xl md:text-7xl text-white tracking-tight text-center mb-6`}
+>
+  Shivansh: Building Digital Experiences Since 2024
+</h2>
 
-          <p className="text-center text-blue-50 max-w-4xl text-lg md:text-xl leading-relaxed mb-12">
-            Sociallyin is a social-first social media agency founded in 2011 in
-            Atlanta, Georgia. The agency is minority-owned and operates its own
-            in-house production studio, Sociallyin Studios. Since 2011,
-            Sociallyin has served 500+ brands — including Samsung, Carnival,
-            Hitachi, and the National Park Service — with 300+ published case
-            studies and community management support in 50+ languages.
-          </p>
+<p className="text-center text-blue-50 max-w-4xl text-lg md:text-xl leading-relaxed mb-12">
+  Since 2024, I've been helping businesses establish a strong online presence
+  through modern websites, web applications, and SEO-focused solutions. Every
+  project is built with performance, user experience, and long-term growth in
+  mind.
+</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center w-full mb-16">
             <p className="text-xl md:text-2xl text-white">

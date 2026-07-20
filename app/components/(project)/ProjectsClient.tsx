@@ -23,9 +23,9 @@ export default function ProjectsClient() {
 
 
   return (
-    <div className="container max-w-7xl mx-auto py-16 px-4">
+    <div className="container max-w-7xl mx-auto py-16 px-4 ">
       <motion.h1
-        className="text-4xl md:text-5xl font-extrabold mb-4 text-center bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent"
+        className="text-4xl pt-24 md:text-5xl font-extrabold mb-4 text-center bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}

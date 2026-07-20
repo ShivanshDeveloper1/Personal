@@ -8,8 +8,8 @@ import { fadeInUp, fadeIn, scaleIn } from "@/utils/animations";
 
 export default function Hero() {
   return (
-    <section className="py-28 bg-gradient-to-b from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
-      <div className="container max-w-7xl mx-auto px-4">
+    <section className="py-28 bg-gradient-to-b  from-white to-gray-50 dark:from-gray-900 dark:to-gray-800">
+      <div className="container max-w-7xl mx-auto px-4 pt-24" >
         <div className="max-w-3xl mx-auto text-center">
           <motion.div
             className="flex justify-center items-center mb-6"

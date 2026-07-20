@@ -60,7 +60,7 @@ export default function ContactClient() {
   return (
     <div className="container max-w-7xl mx-auto py-16 px-4">
       <motion.h1 
-        className="text-4xl md:text-5xl font-extrabold mb-4 text-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent" 
+        className="text-4xl md:text-5xl pt-24 font-extrabold mb-4 text-center bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent" 
         {...fadeInUp}
       >
         Contact Shivansh Singh - Professional Web Developer

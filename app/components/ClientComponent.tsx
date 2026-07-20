@@ -40,95 +40,106 @@ const FadeUp = ({ children, delay = 0, className = "" }) => (
 // ═══════════════════════════════════════════════════════════════════════════
 function Hero() {
   return (
-    <section className="relative overflow-hidden bg-[#0a0f1e] text-white">
-      {/* decorative mesh */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,130,246,0.25) 0%, transparent 70%)",
-        }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/40 to-transparent"
-      />
+  <section className="relative overflow-hidden bg-white dark:bg-[#0a0f1e] text-slate-900 dark:text-white">
+  {/* decorative mesh */}
+  <div
+    aria-hidden
+    className="pointer-events-none absolute inset-0"
+    style={{
+      background:
+        "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,130,246,0.12) 0%, transparent 70%)",
+    }}
+  />
+  <div
+    aria-hidden
+    className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-300 dark:via-blue-500/40 to-transparent"
+  />
 
-      <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32 flex flex-col items-center text-center gap-7">
-        {/* trust pill */}
-        <FadeUp>
-          <span className="inline-flex items-center gap-2 rounded-full border border-blue-500/30 bg-blue-500/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-blue-300 uppercase">
-            <FaMapMarkerAlt className="text-blue-400" />
-            Saharanpur HQ &nbsp;·&nbsp; Delivering Pan-India
-          </span>
-        </FadeUp>
+  <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32 flex flex-col items-center text-center gap-7">
+    {/* Trust Pill */}
+    <FadeUp>
+      <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-blue-700 dark:text-blue-300 uppercase">
+        <FaMapMarkerAlt className="text-blue-600 dark:text-blue-400" />
+        Saharanpur HQ &nbsp;·&nbsp; Serving Clients Across India
+      </span>
+    </FadeUp>
 
-        <FadeUp delay={0.08}>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] tracking-tight">
-            Websites That{" "}
-            <span className="bg-gradient-to-r from-blue-400 via-cyan-400 to-sky-500 bg-clip-text text-transparent">
-              Win Customers
+    {/* Heading */}
+    <FadeUp delay={0.08}>
+      <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] tracking-tight">
+        Websites That{" "}
+        <span className="bg-gradient-to-r from-blue-600 dark:from-blue-400 via-cyan-500 dark:via-cyan-400 to-sky-500 bg-clip-text text-transparent">
+          Grow Your Business
+        </span>
+        <br />
+        More Leads. More Sales. More Growth.
+      </h1>
+    </FadeUp>
+
+    {/* Description */}
+    <FadeUp delay={0.15}>
+      <p className="max-w-xl text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
+        We design lightning-fast, mobile-friendly websites with SEO that help
+        businesses attract customers, build trust, and increase revenue.
+        <strong className="text-slate-900 dark:text-white">
+          {" "}
+          Built for real business growth.
+        </strong>
+      </p>
+    </FadeUp>
+
+    {/* Social Proof */}
+    <FadeUp delay={0.2}>
+      <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500 dark:text-slate-400">
+        {[
+          ["150+", "Projects Delivered"],
+          ["4.9★", "Client Rating"],
+          ["48 Hrs", "First Preview"],
+        ].map(([num, label]) => (
+          <div key={label} className="flex flex-col items-center">
+            <span className="text-2xl font-black text-slate-900 dark:text-white">
+              {num}
             </span>
-            <br />
-            — Not Just Compliments
-          </h1>
-        </FadeUp>
-
-        <FadeUp delay={0.15}>
-          <p className="max-w-xl text-base md:text-lg text-slate-300 leading-relaxed">
-            Fast, mobile-first websites + local SEO for schools, clinics, showrooms &amp;
-            startups across India. <strong className="text-white">Real results, real ROI.</strong>
-          </p>
-        </FadeUp>
-
-        {/* social proof strip */}
-        <FadeUp delay={0.2}>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
-            {[
-              ["150+", "Sites Delivered"],
-              ["4.9★", "Avg. Rating"],
-              ["48 hr", "First Draft"],
-            ].map(([num, label]) => (
-              <div key={label} className="flex flex-col items-center">
-                <span className="text-2xl font-black text-white">{num}</span>
-                <span>{label}</span>
-              </div>
-            ))}
+            <span>{label}</span>
           </div>
-        </FadeUp>
-
-        <FadeUp delay={0.26}>
-          <div className="flex flex-wrap justify-center gap-4 mt-2">
-            <motion.a
-              href={WA_LINK}
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 rounded-xl bg-[#25D366] px-7 py-4 font-bold text-white shadow-lg shadow-green-500/20 text-sm"
-            >
-              <FaWhatsapp size={20} /> WhatsApp करें — Free Consult
-            </motion.a>
-            <motion.button
-              onClick={scrollToForm}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.97 }}
-              className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-7 py-4 font-bold text-white text-sm backdrop-blur-sm"
-            >
-              <FaRocket className="text-blue-400" /> Get Free Quote
-            </motion.button>
-          </div>
-        </FadeUp>
-
-        {/* urgency nudge */}
-        <FadeUp delay={0.32}>
-          <p className="text-xs text-amber-400 font-semibold animate-pulse">
-            🔥 Only 3 project slots open this month — Book now
-          </p>
-        </FadeUp>
+        ))}
       </div>
-    </section>
+    </FadeUp>
+
+    {/* CTA */}
+    <FadeUp delay={0.26}>
+      <div className="flex flex-wrap justify-center gap-4 mt-2">
+        <motion.a
+          href={WA_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-2 rounded-xl bg-[#25D366] px-7 py-4 font-bold text-white shadow-lg shadow-green-300/30 dark:shadow-green-500/20 text-sm"
+        >
+          <FaWhatsapp size={20} /> WhatsApp Us
+        </motion.a>
+
+        <motion.button
+          onClick={scrollToForm}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+          className="flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/15 bg-white dark:bg-white/5 px-7 py-4 font-bold text-slate-900 dark:text-white text-sm backdrop-blur-sm shadow-sm dark:shadow-none hover:border-blue-400"
+        >
+          <FaRocket className="text-blue-600 dark:text-blue-400" />
+          Get Free Quote
+        </motion.button>
+      </div>
+    </FadeUp>
+
+    {/* Urgency */}
+    <FadeUp delay={0.32}>
+      <p className="text-sm font-semibold text-orange-600 dark:text-amber-400">
+        🔥 Only 3 project slots available this month — Book your free consultation today.
+      </p>
+    </FadeUp>
+  </div>
+</section>
   );
 }
 
