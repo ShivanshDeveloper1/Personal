@@ -28,7 +28,7 @@ export default function Navbar() {
   const menuItems = [
     { href: "/about", label: "About" },
     {
-      href: "/service",
+      href: "/service/web-development",
       label: "Services",
       subMenu: [
         { href: "/service/social-media-service", label: "Social Media Marketing" },
