@@ -23,9 +23,14 @@ import {
   HoverCardSmall,
   RotateIconDiv,
 } from "@/app/components/(about)/AboutAnimations";
+import SecHomepage from "./SecondHomepage";
 
 export default function AboutClient() {
+  
   return (
+    <>
+    <SecHomepage />
+   
     <div className="container max-w-7xl mx-auto py-16 px-4 overflow-hidden">
       {/* 1. HERO SECTION */}
       <HeroDiv className="text-center mb-16 pt-24">
@@ -202,5 +207,6 @@ export default function AboutClient() {
         </div>
       </SectionFadeIn>
     </div>
+     </>
   );
 }
