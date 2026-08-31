@@ -46,7 +46,7 @@ export default function Hero() {
           >
             {/* Added a subtle span to the main title to enhance hierarchy and allow easier color targeting */}
             <span className="font-semibold text-gray-900 dark:text-white">
-              Full Stack Developer | UI/UX Enthusiast | Open Source Contributor
+              Full Stack Developer | UI/UX Enthusiast 
             </span>
             <br />{" "}
             {/* Added a line break for better visual separation on a single line */}
