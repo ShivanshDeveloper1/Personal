@@ -143,7 +143,7 @@ export default function Home() {
       <BlogsWrapper />
 
       <Faq />
-      <ProjectOverview />
+      {/* <ProjectOverview /> */}
       
       <Newsletter />
     </>
