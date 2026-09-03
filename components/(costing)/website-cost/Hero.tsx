@@ -163,9 +163,7 @@ export default function HeroAnimation() {
                           <p className={`font-semibold text-slate-900 dark:text-slate-100 ${isSelected ? "text-primary dark:text-primary" : ""}`}>
                             {it.title}
                           </p>
-                          <p className="mt-1 text-sm font-medium text-slate-500 dark:text-slate-400">
-                            ₹{it.Price.toLocaleString('en-IN')}
-                          </p>
+                          
                         </div>
                       </div>
                     );
@@ -206,9 +204,7 @@ export default function HeroAnimation() {
                           <p className="font-medium text-slate-900 dark:text-slate-100 text-sm truncate">
                             {it.title}
                           </p>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">
-                            +₹{it.Price.toLocaleString('en-IN')}
-                          </p>
+                         
                         </div>
 
                         {isSelected && (
