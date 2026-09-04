@@ -1,39 +1,55 @@
 import { Project } from "../types";
 
 export const projects: Project[] = [
-{
-  title: "Real Estate Price Intelligence Platform (Saharanpur)",
-  images: [],
-  description:
-    "Built a hyperlocal real estate platform that compares government circle rates with actual market prices. This helps buyers and investors make informed decisions and increases trust and traffic in the local property market.",
+  {
+    title: "Uhealth Pharma Business",
+    images: [],
+    description:
+      "Built a fully functional online product-selling website for Uhealth Pharma, featuring secure Razorpay payment integration, an admin dashboard, product management, and a responsive, user-friendly interface. The platform enables customers to browse and purchase products online, while the admin dashboard provides tools to manage products, orders, and website content efficiently.",
 
-  sections: [
-    {
-      heading: "Create your Renovation website fast and easy on Framer",
-      paragraph:
-        "Handyman is a clean, practical, and free website template built for handymen, interior renovation, home improvement, and general home service professionals",
-    },
-    {
-      heading: "A free template with free, personalized support",
-      paragraph:
-        "Even though our templates are free to use, we genuinely value and support our users. When you choose to build your website with one of our templates, free doesn’t mean you’re on your own. Our support team is here to help—or even just to offer feedback before you launch, so you can go live with confidence.",
-    },
-    {
-      heading: "Made for home service professionals",
-      paragraph:
-        "Whether you’re a solo handyman, a small team of remodelers, or a general contractor with years of experience, this free template gives you a fast, reliable, and professional way to present your services. Built specifically for home service professionals, this free template helps you showcase what you do best: solving real problems, improving homes, and delivering quality craftsmanship",
-    },
-  ],
+    sections: [{ heading: "A Complete Online Product-Selling Platform", paragraph: "Developed a modern and responsive e-commerce website for Uhealth Pharma that provides customers with a smooth online shopping experience. The platform is designed to showcase products clearly, simplify the purchasing process, and provide a reliable experience across desktop, tablet, and mobile devices.", }, { heading: "Secure Razorpay Payment Integration", paragraph: "Integrated Razorpay to provide a secure and seamless online payment experience. Customers can complete their purchases through a trusted payment gateway, while the system efficiently handles payment processing and order confirmation.", }, { heading: "Powerful Admin Dashboard", paragraph: "Built a dedicated admin dashboard that allows the business to manage products, update product information, monitor orders, and control important website content. This makes it easier for the business team to manage day-to-day e-commerce operations without relying on technical assistance.", },],
 
-  details: ["Updated 4 months ago", "10.0K views"],
-  categories: ["Real Estate", "Animated", "Colourful"],
+  details: ["Updated recently", "Live Website"],
+    categories: ["E-Commerce", "Pharma", "Business"],
 
-  technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MERN Stack"],
-  githubLink: "https://github.com/ShivanshDeveloper1/SaharanpurPropertyPrice",
-  demoLink: "https://saharanpurprice.in",
-  image: "/projects/main.png",
-},
-  
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MERN Stack"],
+    githubLink: "https://github.com/ShivanshDeveloper1/SaharanpurPropertyPrice",
+    demoLink: "https://uhealthpharma.in",
+    image: "/projects/pharmaa.png",
+  },
+  {
+    title: "Real Estate Price Intelligence Platform (Saharanpur)",
+    images: [],
+    description:
+      "Built a hyperlocal real estate platform that compares government circle rates with actual market prices. This helps buyers and investors make informed decisions and increases trust and traffic in the local property market.",
+
+    sections: [
+      {
+        heading: "Create your Renovation website fast and easy on Framer",
+        paragraph:
+          "Handyman is a clean, practical, and free website template built for handymen, interior renovation, home improvement, and general home service professionals",
+      },
+      {
+        heading: "A free template with free, personalized support",
+        paragraph:
+          "Even though our templates are free to use, we genuinely value and support our users. When you choose to build your website with one of our templates, free doesn’t mean you’re on your own. Our support team is here to help—or even just to offer feedback before you launch, so you can go live with confidence.",
+      },
+      {
+        heading: "Made for home service professionals",
+        paragraph:
+          "Whether you’re a solo handyman, a small team of remodelers, or a general contractor with years of experience, this free template gives you a fast, reliable, and professional way to present your services. Built specifically for home service professionals, this free template helps you showcase what you do best: solving real problems, improving homes, and delivering quality craftsmanship",
+      },
+    ],
+
+    details: ["Updated 4 months ago", "10.0K views"],
+    categories: ["Real Estate", "Animated", "Colourful"],
+
+    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MERN Stack"],
+    githubLink: "https://github.com/ShivanshDeveloper1/SaharanpurPropertyPrice",
+    demoLink: "https://saharanpurprice.in",
+    image: "/projects/main.png",
+  },
+
   {
     title: "Complete Digital Management System for Coaching Institute",
     description:
@@ -66,7 +82,7 @@ export const projects: Project[] = [
   {
     title: "Coaching Management System for High-Volume Institute",
     description: "A full-featured web platform built for a commerce coaching institute handling a large number of students with limited staff. The system streamlines operations like attendance tracking, results, quizzes, and student management — reducing manual work and improving efficiency.",
-    technologies: ["React", "Nodejs","Nextjs","Socket.io"],
+    technologies: ["React", "Nodejs", "Nextjs", "Socket.io"],
     githubLink: "https://github.com/ShivanshDeveloper1",
     demoLink: "https://commerce-with-sagar-sir.vercel.app/",
     image: "/projects/sagarsir.png",
@@ -79,16 +95,16 @@ export const projects: Project[] = [
     githubLink: "",
     demoLink: "https://www.playwithdate.in",
     image: "/date.png",
-     flagship: true,  
+    flagship: true,
   },
- {
-  title: "AI Chatbot",
-  description: "An AI-powered chatbot that makes the chatbot creation process easy. Built using the Gemini API and Next.js, it offers powerful features. This project allows users to easily create personalized chatbots for their business.",
-  technologies: ["React", "Next.js"],
-  githubLink: "https://github.com/ShivanshDeveloper1",
-  demoLink: "https://ai-customer-support-six-nu.vercel.app",
-  image: "/projects/Customer_Support.png",
-},
+  {
+    title: "AI Chatbot",
+    description: "An AI-powered chatbot that makes the chatbot creation process easy. Built using the Gemini API and Next.js, it offers powerful features. This project allows users to easily create personalized chatbots for their business.",
+    technologies: ["React", "Next.js"],
+    githubLink: "https://github.com/ShivanshDeveloper1",
+    demoLink: "https://ai-customer-support-six-nu.vercel.app",
+    image: "/projects/Customer_Support.png",
+  },
   // {
   //   title: "Expense Tracker",
   //   description: "A personal finance tracker to manage expenses and income.",
@@ -97,7 +113,7 @@ export const projects: Project[] = [
   //   demoLink: "https://ezbookkeeping-demo.mayswind.net/desktop#/",
   //   image: "/projects/expense-tracker.webp",
   // },
-   
+
 
 
 
