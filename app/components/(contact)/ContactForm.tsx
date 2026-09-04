@@ -135,7 +135,7 @@ export default function ContactClient() {
                 <FaMapMarkerAlt className="h-6 w-6" />
               </div>
               <div>
-                <h3 className="font-semibold text-gray-900 dark:text-white">Service Hub Headquarters</h3>
+                <h3 className="font-semibold text-gray-900 dark:text-white">Company Location</h3>
                 <p className="text-gray-600 dark:text-gray-400">Saharanpur, Uttar Pradesh, India</p>
               </div>
             </motion.div>

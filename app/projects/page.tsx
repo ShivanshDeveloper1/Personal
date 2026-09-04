@@ -12,6 +12,7 @@ export const metadata: Metadata = {
     "Next.js Projects Portfolio",
     "React Developer Case Studies",
     "MERN Stack Applications India",
+    "2026 indias Projects",
     "E-commerce Web Developer Portfolio",
     "AI Application Developer Dehradun",
     "Custom Software Portfolio Haridwar",
