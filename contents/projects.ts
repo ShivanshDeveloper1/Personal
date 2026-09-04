@@ -12,7 +12,7 @@ export const projects: Project[] = [
   details: ["Updated recently", "Live Website"],
     categories: ["E-Commerce", "Pharma", "Business"],
 
-    technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MERN Stack"],
+    technologies: [ "TypeScript", "Tailwind CSS", "MERN Stack","razorpay","MongoDb"],
     githubLink: "https://github.com/ShivanshDeveloper1/SaharanpurPropertyPrice",
     demoLink: "https://uhealthpharma.in",
     image: "/projects/pharmaa.png",
@@ -105,15 +105,48 @@ export const projects: Project[] = [
     demoLink: "https://ai-customer-support-six-nu.vercel.app",
     image: "/projects/Customer_Support.png",
   },
-  // {
-  //   title: "Expense Tracker",
-  //   description: "A personal finance tracker to manage expenses and income.",
-  //   technologies: ["React", "Firebase"],
-  //   githubLink: "https://github.com/MSUResult",
-  //   demoLink: "https://ezbookkeeping-demo.mayswind.net/desktop#/",
-  //   image: "/projects/expense-tracker.webp",
-  // },
 
+
+  // Furniture
+
+{
+  title: "Saharanpur Furniture Business",
+  description:
+    "Built a modern furniture business website designed to showcase and manage a wide range of furniture products. The platform allows the business to upload products with detailed information, organize furniture into categories, and provide customers with a smooth and responsive browsing experience.",
+
+  sections: [
+    {
+      heading: "Modern Furniture Product Showcase",
+      paragraph:
+        "Developed a modern and responsive furniture website that allows customers to explore a wide range of furniture products through a clean and visually appealing interface. Products are presented with images, descriptions, categories, and important details to make browsing easier for customers.",
+    },
+    {
+      heading: "Easy Furniture Product Management",
+      paragraph:
+        "Built the platform to make it simple for the business to upload and manage furniture products. The system supports product information such as names, images, descriptions, categories, and other important details, making it easier to keep the online furniture catalog updated.",
+    },
+    {
+      heading: "Responsive & User-Friendly Experience",
+      paragraph:
+        "Designed the website to provide a smooth experience across desktop, tablet, and mobile devices. The clean layout and organized product presentation help customers quickly discover furniture and explore products that match their needs.",
+    },
+  ],
+
+  details: ["Updated recently", "Live Website"],
+  categories: ["Furniture", "Business", "E-Commerce"],
+
+  technologies: [
+    "React",
+    "Next.js",
+    "Nginx",
+    "TanStack Query",
+    "Node.js",
+  ],
+    githubLink: "https://github.com/ShivanshDeveloper1/Furniture_business.git",
+    demoLink: "https://furniture-business.onrender.com",
+    image: "/projects/furniture.png",
+  },
+ 
 
 
 
