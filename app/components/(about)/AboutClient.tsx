@@ -26,6 +26,7 @@ import {
 import SecHomepage from "./SecondHomepage";
 import { useScroll, useTransform, motion } from "framer-motion";
 import { useRef } from "react";
+import FounderSection from "./SecondHomepage";
 
 // --- NEW COMPONENT: AboutSection ---
 function AboutSection() {
@@ -90,7 +91,7 @@ function Word({ word, progress, index, total }) {
 export default function AboutClient() {
   return (
     <>
-      <SecHomepage />
+      < FounderSection />
 
       <div className="container max-w-7xl mx-auto py-12 px-4 overflow-hidden">
         {/* 1. HERO SECTION */}

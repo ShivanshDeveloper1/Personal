@@ -570,7 +570,7 @@ export default function ServicesUI() {
       <Hero />
       <TrustBar />
       <Services />
-       <FounderSection/>
+    
       <Reviews />
      
       <LocationServices />
