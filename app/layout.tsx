@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Archivo_Black,Archivo, Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -12,6 +12,21 @@ import { Anton } from "next/font/google";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+
+const archivoBlack = Archivo_Black({
+  subsets: ["latin"],
+  variable: "--font-archivo-black-font",
+  weight: "400",
+});
+
+
+
+const archivo = Archivo({
+  subsets: ["latin"],
+  variable: "--font-archivo-custom",
+  weight: ["400", "500", "600", "700", "800", "900"],
 });
 
 const geistMono = Geist_Mono({
@@ -207,7 +222,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`bg-white transition-colors dark:bg-gray-900 dark:text-white ${geistSans.variable} ${geistMono.variable}   `}
+        className={`bg-white transition-colors dark:bg-gray-900 dark:text-white  ${archivo.variable} ${geistSans.variable} ${geistMono.variable}   ${archivoBlack.variable}   `}
       >
         {/* ✅ 1. Load Google Analytics Library */}
         <Script

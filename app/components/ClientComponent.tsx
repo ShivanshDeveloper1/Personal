@@ -14,6 +14,7 @@ import {
   FaPhone,
 } from "react-icons/fa";
 import { locations } from "@/data/locations";
+import FounderSection from "./(service)/FounderSection";
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 const scrollToForm = () => {
@@ -569,7 +570,9 @@ export default function ServicesUI() {
       <Hero />
       <TrustBar />
       <Services />
+       <FounderSection/>
       <Reviews />
+     
       <LocationServices />
       <ContactForm />
       <StickyBar />

@@ -257,6 +257,22 @@ export default function ContactClient() {
           </motion.form>
         </motion.div>
       </div>
+<div className="max-w-7xl mx-auto w-full py-12">
+  <div className="w-full h-[450px] rounded-2xl overflow-hidden border border-gray-200 dark:border-gray-800 shadow-lg">
+    <iframe
+      title="Shivansh Web Developer Location - Saharanpur"
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6915.403415667208!2d77.5216189935791!3d29.930488600000007!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390e954345af37a5%3A0xa26bbf1673e9cd90!2sShivansh%20-%20Web%20Developer!5e0!3m2!1sen!2sin!4v1788761558055!5m2!1sen!2sin"
+      width="100%"
+      height="100%"
+      style={{ border: 0 }}
+      allowFullScreen
+      loading="lazy"
+      referrerPolicy="no-referrer-when-downgrade"
+    />
+  </div>
+</div>
+
+
     </div>
   );
 }
