@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Archivo_Black,Archivo, Geist, Geist_Mono } from "next/font/google";
+import { Archivo_Black,Archivo, Geist, Geist_Mono, Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/Navbar";
 import { ThemeProvider } from "./context/ThemeContext";
@@ -13,6 +13,20 @@ const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
+
+
+const plusJakarta = Plus_Jakarta_Sans({
+  subsets:['latin'],
+  variable:'--font-plus-jakarta'
+})
+
+const inter = Inter({ 
+  subsets: ['latin'], 
+  variable: '--font-plus-inter' 
+})
+
+
+
 
 
 const archivoBlack = Archivo_Black({
@@ -222,7 +236,7 @@ export default function RootLayout({
       </head>
 
       <body
-        className={`bg-white transition-colors dark:bg-gray-900 dark:text-white  ${archivo.variable} ${geistSans.variable} ${geistMono.variable}   ${archivoBlack.variable}   `}
+        className={`bg-white transition-colors dark:bg-gray-900 dark:text-white ${plusJakarta.variable} ${inter.variable}  ${archivo.variable} ${geistSans.variable} ${geistMono.variable}   ${archivoBlack.variable}   `}
       >
         {/* ✅ 1. Load Google Analytics Library */}
         <Script

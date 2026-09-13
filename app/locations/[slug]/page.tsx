@@ -2,6 +2,8 @@ import { locations } from "@/data/locations";
 import LocationUI from "@/app/components/LocationUI";
 import { notFound } from "next/navigation";
 
+
+
 // Dynamic SEO Metadata
 export async function generateMetadata({ params }) {
   const { slug } = await params;
@@ -122,6 +124,9 @@ export default async function Page({ params }) {
       />
       
       <LocationUI data={data} />
+
+      
+
     </>
   );
 }

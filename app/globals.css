@@ -10,6 +10,12 @@
 
   --font-sans: "Inter", sans-serif;
   --font-archivo: var(--font-archivo-custom);
+
+  --font-jakarta: var(--font-plus-jakarta);
+  --font-inter : var(--font-plus-inter);  
+
+
+
   --font-archivo-black: var(--font-archivo-black-font);
 
   --animation-fade-in: fadeIn 0.5s ease-in-out;
@@ -20,6 +26,10 @@
 
 a {
   transition: all 0.2s ease;
+}
+
+html{
+  scroll-behavior: smooth;
 }
 
 @layer components {
@@ -152,3 +162,16 @@ a {
 .custom-shape-divider-bottom-1784463762 .shape-fill {
     fill: #8274FF;
 }
+
+@layer components{
+  .section{
+     @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24;
+  }
+}
+
+/* use Plus Jakarta Sans or Outfit for headings and Inter for body text. */
+
+
+/* default leading 120% */
+
+/* Self-end works when parenti is flex-box okay */

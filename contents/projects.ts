@@ -3,26 +3,45 @@ import { Project } from "../types";
 export const projects: Project[] = [
   {
     title: "Uhealth Pharma Business",
+    bgGradient: "bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700",
     images: [],
     description:
       "Built a fully functional online product-selling website for Uhealth Pharma, featuring secure Razorpay payment integration, an admin dashboard, product management, and a responsive, user-friendly interface. The platform enables customers to browse and purchase products online, while the admin dashboard provides tools to manage products, orders, and website content efficiently.",
-
-    sections: [{ heading: "A Complete Online Product-Selling Platform", paragraph: "Developed a modern and responsive e-commerce website for Uhealth Pharma that provides customers with a smooth online shopping experience. The platform is designed to showcase products clearly, simplify the purchasing process, and provide a reliable experience across desktop, tablet, and mobile devices.", }, { heading: "Secure Razorpay Payment Integration", paragraph: "Integrated Razorpay to provide a secure and seamless online payment experience. Customers can complete their purchases through a trusted payment gateway, while the system efficiently handles payment processing and order confirmation.", }, { heading: "Powerful Admin Dashboard", paragraph: "Built a dedicated admin dashboard that allows the business to manage products, update product information, monitor orders, and control important website content. This makes it easier for the business team to manage day-to-day e-commerce operations without relying on technical assistance.", },],
-
-  details: ["Updated recently", "Live Website"],
+    sections: [
+      {
+        heading: "A Complete Online Product-Selling Platform",
+        paragraph:
+          "Developed a modern and responsive e-commerce website for Uhealth Pharma that provides customers with a smooth online shopping experience. The platform is designed to showcase products clearly, simplify the purchasing process, and provide a reliable experience across desktop, tablet, and mobile devices.",
+      },
+      {
+        heading: "Secure Razorpay Payment Integration",
+        paragraph:
+          "Integrated Razorpay to provide a secure and seamless online payment experience. Customers can complete their purchases through a trusted payment gateway, while the system efficiently handles payment processing and order confirmation.",
+      },
+      {
+        heading: "Powerful Admin Dashboard",
+        paragraph:
+          "Built a dedicated admin dashboard that allows the business to manage products, update product information, monitor orders, and control important website content. This makes it easier for the business team to manage day-to-day e-commerce operations without relying on technical assistance.",
+      },
+    ],
+    details: ["Updated recently", "Live Website"],
     categories: ["E-Commerce", "Pharma", "Business"],
-
-    technologies: [ "TypeScript", "Tailwind CSS", "MERN Stack","razorpay","MongoDb"],
+    technologies: ["TypeScript", "Tailwind CSS", "MERN Stack", "razorpay", "MongoDb"],
     githubLink: "https://github.com/ShivanshDeveloper1/SaharanpurPropertyPrice",
     demoLink: "https://uhealthpharma.in",
     image: "/projects/pharmaa.png",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["Pharma E-Commerce", "Online Medicine Store"],
+    },
   },
   {
     title: "Real Estate Price Intelligence Platform (Saharanpur)",
+    bgGradient: "bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700",
     images: [],
     description:
       "Built a hyperlocal real estate platform that compares government circle rates with actual market prices. This helps buyers and investors make informed decisions and increases trust and traffic in the local property market.",
-
     sections: [
       {
         heading: "Create your Renovation website fast and easy on Framer",
@@ -40,124 +59,166 @@ export const projects: Project[] = [
           "Whether you’re a solo handyman, a small team of remodelers, or a general contractor with years of experience, this free template gives you a fast, reliable, and professional way to present your services. Built specifically for home service professionals, this free template helps you showcase what you do best: solving real problems, improving homes, and delivering quality craftsmanship",
       },
     ],
-
     details: ["Updated 4 months ago", "10.0K views"],
     categories: ["Real Estate", "Animated", "Colourful"],
-
     technologies: ["Next.js", "TypeScript", "Tailwind CSS", "MERN Stack"],
     githubLink: "https://github.com/ShivanshDeveloper1/SaharanpurPropertyPrice",
     demoLink: "https://saharanpurprice.in",
     image: "/projects/main.png",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["Real Estate Intelligence", "Property Circle Rates"],
+    },
   },
-
   {
     title: "Complete Digital Management System for Coaching Institute",
+    bgGradient: "bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700",
+    images: [],
     description:
       "Built a full-stack dashboard system to manage students, employees, and daily operations for a 20+ year-old coaching institute. Improved operational efficiency and streamlined communication with automated tools.",
+    sections: [],
+    details: ["Updated recently", "Live Operations"],
+    categories: ["Management System", "Education", "Dashboard"],
     technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
     githubLink: "https://github.com/ShivanshDeveloper1/rapti.git",
     demoLink: "https://rapticomputer.com",
     image: "/projects/task-manager.png",
-  },
-
-  {
-    title: "SEO-Driven Blog & Traffic Growth Platform",
-    description:
-      "Built a content-driven website optimized for SEO that attracts consistent organic traffic and increases brand visibility in the local market.",
-    technologies: ["Gatsby", "GraphQL", "Contentful"],
-    githubLink: "https://github.com",
-    demoLink: "https://webcontractor.in/blogs",
-    image: "/projects/blog-website.jpeg",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["Coaching Management", "Student ERP System"],
+    },
   },
 
   {
     title: "Modern Website for 25+ Year Old Coaching Institute",
+    bgGradient: "bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-800",
+    images: [],
     description:
       "Redesigned and modernized the institute’s website with dynamic result sections, blogs, and improved user experience, helping increase student trust and inquiries.",
+    sections: [],
+    details: ["Updated recently", "Official Website"],
+    categories: ["Education", "Website Redesign", "Branding"],
     technologies: ["React", "Node.js", "framer motion"],
     githubLink: "https://github.com/ShivanshDeveloper1",
     demoLink: "https://abcinstitute.org",
     image: "/projects/chat-app.png",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["Coaching Institute Portal", "Educational Portal"],
+    },
+  },
+    {
+    title: "SEO-Driven Blog & Traffic Growth Platform",
+    bgGradient: "bg-gradient-to-br from-purple-600 via-pink-600 to-rose-700",
+    images: [],
+    description:
+      "Built a content-driven website optimized for SEO that attracts consistent organic traffic and increases brand visibility in the local market.",
+    sections: [],
+    details: ["Updated recently", "SEO Optimized"],
+    categories: ["Blogging", "SEO", "Growth"],
+    technologies: ["Gatsby", "GraphQL", "Contentful"],
+    githubLink: "https://github.com",
+    demoLink: "https://webcontractor.in/blogs",
+    image: "/projects/blog-website.jpeg",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["SEO Blogging Platform", "Organic Growth Engine"],
+    },
   },
   {
     title: "Coaching Management System for High-Volume Institute",
-    description: "A full-featured web platform built for a commerce coaching institute handling a large number of students with limited staff. The system streamlines operations like attendance tracking, results, quizzes, and student management — reducing manual work and improving efficiency.",
+    bgGradient: "bg-gradient-to-br from-amber-600 via-orange-600 to-red-700",
+    images: [],
+    description:
+      "A full-featured web platform built for a commerce coaching institute handling a large number of students with limited staff. The system streamlines operations like attendance tracking, results, quizzes, and student management — reducing manual work and improving efficiency.",
+    sections: [],
+    details: ["Updated recently", "High Traffic"],
+    categories: ["Education", "Management", "SaaS"],
     technologies: ["React", "Nodejs", "Nextjs", "Socket.io"],
     githubLink: "https://github.com/ShivanshDeveloper1",
     demoLink: "https://commerce-with-sagar-sir.vercel.app/",
     image: "/projects/sagarsir.png",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["Student Management Platform", "Commerce Coaching Portal"],
+    },
   },
   {
     title: "AI-Powered Dating Platform",
+    bgGradient: "bg-gradient-to-br from-rose-600 via-pink-600 to-fuchsia-700",
+    images: [],
     description:
       "Developed a real-time dating platform with AI-powered interactions and live chat features, designed to increase engagement and user retention compared to traditional dating apps.",
+    sections: [],
+    details: ["Updated recently", "Flagship Project"],
+    categories: ["AI", "Dating Platform", "Real-Time"],
     technologies: ["React", "Nextjs", "Gemini API", "socket.io"],
     githubLink: "",
     demoLink: "https://www.playwithdate.in",
     image: "/date.png",
+    city: "Saharanpur",
     flagship: true,
+    seo: {
+      secondaryKeywords: ["AI Dating App", "Realtime Social Chat"],
+    },
   },
   {
     title: "AI Chatbot",
-    description: "An AI-powered chatbot that makes the chatbot creation process easy. Built using the Gemini API and Next.js, it offers powerful features. This project allows users to easily create personalized chatbots for their business.",
+    bgGradient: "bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-700",
+    images: [],
+    description:
+      "An AI-powered chatbot that makes the chatbot creation process easy. Built using the Gemini API and Next.js, it offers powerful features. This project allows users to easily create personalized chatbots for their business.",
+    sections: [],
+    details: ["Updated recently", "AI Tool"],
+    categories: ["AI", "Chatbot", "Customer Support"],
     technologies: ["React", "Next.js"],
     githubLink: "https://github.com/ShivanshDeveloper1",
     demoLink: "https://ai-customer-support-six-nu.vercel.app",
     image: "/projects/Customer_Support.png",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["Custom AI Chatbot", "Customer Support Automation"],
+    },
   },
-
-
-  // Furniture
-
-{
-  title: "Saharanpur Furniture Business",
-  description:
-    "Built a modern furniture business website designed to showcase and manage a wide range of furniture products. The platform allows the business to upload products with detailed information, organize furniture into categories, and provide customers with a smooth and responsive browsing experience.",
-
-  sections: [
-    {
-      heading: "Modern Furniture Product Showcase",
-      paragraph:
-        "Developed a modern and responsive furniture website that allows customers to explore a wide range of furniture products through a clean and visually appealing interface. Products are presented with images, descriptions, categories, and important details to make browsing easier for customers.",
-    },
-    {
-      heading: "Easy Furniture Product Management",
-      paragraph:
-        "Built the platform to make it simple for the business to upload and manage furniture products. The system supports product information such as names, images, descriptions, categories, and other important details, making it easier to keep the online furniture catalog updated.",
-    },
-    {
-      heading: "Responsive & User-Friendly Experience",
-      paragraph:
-        "Designed the website to provide a smooth experience across desktop, tablet, and mobile devices. The clean layout and organized product presentation help customers quickly discover furniture and explore products that match their needs.",
-    },
-  ],
-
-  details: ["Updated recently", "Live Website"],
-  categories: ["Furniture", "Business", "E-Commerce"],
-
-  technologies: [
-    "React",
-    "Next.js",
-    "Nginx",
-    "TanStack Query",
-    "Node.js",
-  ],
+  {
+    title: "Saharanpur Furniture Business",
+    bgGradient: "bg-gradient-to-br from-amber-700 via-orange-700 to-yellow-800",
+    images: [],
+    description:
+      "Built a modern furniture business website designed to showcase and manage a wide range of furniture products. The platform allows the business to upload products with detailed information, organize furniture into categories, and provide customers with a smooth and responsive browsing experience.",
+    sections: [
+      {
+        heading: "Modern Furniture Product Showcase",
+        paragraph:
+          "Developed a modern and responsive furniture website that allows customers to explore a wide range of furniture products through a clean and visually appealing interface. Products are presented with images, descriptions, categories, and important details to make browsing easier for customers.",
+      },
+      {
+        heading: "Easy Furniture Product Management",
+        paragraph:
+          "Built the platform to make it simple for the business to upload and manage furniture products. The system supports product information such as names, images, descriptions, categories, and other important details, making it easier to keep the online furniture catalog updated.",
+      },
+      {
+        heading: "Responsive & User-Friendly Experience",
+        paragraph:
+          "Designed the website to provide a smooth experience across desktop, tablet, and mobile devices. The clean layout and organized product presentation help customers quickly discover furniture and explore products that match their needs.",
+      },
+    ],
+    details: ["Updated recently", "Live Website"],
+    categories: ["Furniture", "Business", "E-Commerce"],
+    technologies: ["React", "Next.js", "Nginx", "TanStack Query", "Node.js"],
     githubLink: "https://github.com/ShivanshDeveloper1/Furniture_business.git",
     demoLink: "https://furniture-business.onrender.com",
     image: "/projects/furniture.png",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["Saharanpur Wooden Furniture", "Online Furniture Store"],
+    },
   },
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
 ];

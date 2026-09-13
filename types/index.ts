@@ -3,6 +3,7 @@ export interface Project {
   description: string;
   technologies: string[];
   githubLink: string;
+  bgGradient:String,
   demoLink: string;
   image: string;
 }

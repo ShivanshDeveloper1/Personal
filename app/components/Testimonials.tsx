@@ -25,6 +25,7 @@ const testimonials = [
       "I needed a simple site for my tuition center and shivansh handled everything – SEO, design, and Google ranking setup!",
     initials: "AK",
   },
+  
 ];
 
 export default function Testimonials() {
