@@ -129,6 +129,25 @@ export const projects: Project[] = [
       secondaryKeywords: ["SEO Blogging Platform", "Organic Growth Engine"],
     },
   },
+    {
+    title: "AI Chatbot",
+    bgGradient: "bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-700",
+    images: [],
+    description:
+      "An AI-powered chatbot that makes the chatbot creation process easy. Built using the Gemini API and Next.js, it offers powerful features. This project allows users to easily create personalized chatbots for their business.",
+    sections: [],
+    details: ["Updated recently", "AI Tool"],
+    categories: ["AI", "Chatbot", "Customer Support"],
+    technologies: ["React", "Next.js"],
+    githubLink: "https://github.com/ShivanshDeveloper1",
+    demoLink: "https://ai-customer-support-six-nu.vercel.app",
+    image: "/projects/Customer_Support.png",
+    city: "Saharanpur",
+    flagship: false,
+    seo: {
+      secondaryKeywords: ["Custom AI Chatbot", "Customer Support Automation"],
+    },
+  },
   {
     title: "Coaching Management System for High-Volume Institute",
     bgGradient: "bg-gradient-to-br from-amber-600 via-orange-600 to-red-700",
@@ -167,25 +186,7 @@ export const projects: Project[] = [
       secondaryKeywords: ["AI Dating App", "Realtime Social Chat"],
     },
   },
-  {
-    title: "AI Chatbot",
-    bgGradient: "bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-700",
-    images: [],
-    description:
-      "An AI-powered chatbot that makes the chatbot creation process easy. Built using the Gemini API and Next.js, it offers powerful features. This project allows users to easily create personalized chatbots for their business.",
-    sections: [],
-    details: ["Updated recently", "AI Tool"],
-    categories: ["AI", "Chatbot", "Customer Support"],
-    technologies: ["React", "Next.js"],
-    githubLink: "https://github.com/ShivanshDeveloper1",
-    demoLink: "https://ai-customer-support-six-nu.vercel.app",
-    image: "/projects/Customer_Support.png",
-    city: "Saharanpur",
-    flagship: false,
-    seo: {
-      secondaryKeywords: ["Custom AI Chatbot", "Customer Support Automation"],
-    },
-  },
+
   {
     title: "Saharanpur Furniture Business",
     bgGradient: "bg-gradient-to-br from-amber-700 via-orange-700 to-yellow-800",
