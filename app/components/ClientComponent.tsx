@@ -15,6 +15,13 @@ import {
 } from "react-icons/fa";
 import { locations } from "@/data/locations";
 import FounderSection from "./(service)/FounderSection";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { ArrowRight, Star } from "lucide-react";
+import FeaturedProject from "./(location)/FeaturedProject";
+import Testimonials from "./Testimonials";
+import Pricing from "./(location)/Pricing";
+import TechnologyUsed from "./(location)/TechnologyUsed";
 
 // ─── helpers ────────────────────────────────────────────────────────────────
 const scrollToForm = () => {
@@ -39,109 +46,134 @@ const FadeUp = ({ children, delay = 0, className = "" }) => (
 // ═══════════════════════════════════════════════════════════════════════════
 // 1. HERO
 // ═══════════════════════════════════════════════════════════════════════════
-function Hero() {
+const LocationUI = ({ data = {} }) => {
+  const router = useRouter()
+
+  // Dynamic values with static fallbacks (Defaults to "India")
+  const city = data.city || "India"
+  const description =
+    data.description ||
+    "Crafting high-performing, modern web applications, custom platforms, and fast digital experiences tailored for business growth."
+  const primaryKeyword = data.seo?.primaryKeyword || "Web Developer in India"
+
   return (
-  <section className="relative overflow-hidden bg-white dark:bg-[#0a0f1e] text-slate-900 dark:text-white">
-  {/* decorative mesh */}
-  <div
-    aria-hidden
-    className="pointer-events-none absolute inset-0"
-    style={{
-      background:
-        "radial-gradient(ellipse 80% 60% at 50% -10%, rgba(59,130,246,0.12) 0%, transparent 70%)",
-    }}
-  />
-  <div
-    aria-hidden
-    className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-300 dark:via-blue-500/40 to-transparent"
-  />
+    <main className="">
+      <div className="min-h-screen flex flex-col font-inter justify-center bg-white dark:bg-[#0f172a] text-slate-900 dark:text-slate-100 transition-colors py-12">
+        <div className="max-w-7xl mx-auto px-4 md:px-12 py-16 md:py-24 flex flex-col md:flex-row items-center gap-12">
+          
+          {/* Left Column: Copy & CTAs */}
+          <div className="md:w-1/2 flex flex-col space-y-6">
+            
+            {/* Main Headline */}
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight font-jakarta leading-[1.15]">
+              Web Developer in{" "}
+              <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+                {city}
+              </span>
+            </h1>
 
-  <div className="relative mx-auto max-w-6xl px-5 py-24 md:py-32 flex flex-col items-center text-center gap-7">
-    {/* Trust Pill */}
-    <FadeUp>
-      <span className="inline-flex items-center gap-2 rounded-full border border-blue-200 dark:border-blue-500/30 bg-blue-50 dark:bg-blue-500/10 px-4 py-1.5 text-xs font-semibold tracking-widest text-blue-700 dark:text-blue-300 uppercase">
-        <FaMapMarkerAlt className="text-blue-600 dark:text-blue-400" />
-        Saharanpur HQ &nbsp;·&nbsp; Serving Clients Across India
-      </span>
-    </FadeUp>
+            {/* Subheading */}
+            <p className="text-lg text-slate-600 font-inter dark:text-slate-400 max-w-lg leading-relaxed">
+              {description}
+            </p>
 
-    {/* Heading */}
-    <FadeUp delay={0.08}>
-      <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.08] tracking-tight">
-        Websites That{" "}
-        <span className="bg-gradient-to-r from-blue-600 dark:from-blue-400 via-cyan-500 dark:via-cyan-400 to-sky-500 bg-clip-text text-transparent">
-          Grow Your Business
-        </span>
-        <br />
-        More Leads. More Sales. More Growth.
-      </h1>
-    </FadeUp>
+            {/* Primary CTA + Social Proof Block */}
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6 pt-2">
+              <button
+                onClick={() => router.push('/contact')}
+                className="group relative px-6 py-4 bg-indigo-600 text-white rounded-xl font-bold transition-all hover:bg-indigo-500 active:scale-95 flex items-center justify-center gap-2 shadow-lg shadow-indigo-500/25 overflow-hidden shrink-0"
+              >
+                <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 -translate-x-full group-hover:translate-x-full transition-transform duration-700" />
+                Contact Me <ArrowRight className="w-5 h-5" />
+              </button>
 
-    {/* Description */}
-    <FadeUp delay={0.15}>
-      <p className="max-w-xl text-base md:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
-        We design lightning-fast, mobile-friendly websites with SEO that help
-        businesses attract customers, build trust, and increase revenue.
-        <strong className="text-slate-900 dark:text-white">
-          {" "}
-          Built for real business growth.
-        </strong>
-      </p>
-    </FadeUp>
+              {/* Social Proof Stack */}
+              <div className="flex items-center gap-3">
+                <div className="flex -space-x-3 overflow-hidden">
+                  <Image
+                    width={40}
+                    height={40}
+                    src="/Suite.png"
+                    alt="Client"
+                    className="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover"
+                  />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="https://plus.unsplash.com/premium_photo-1691030254390-aa56b22e6a45?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Client"
+                    className="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover"
+                  />
+                  <Image
+                    width={40}
+                    height={40}
+                    src="https://plus.unsplash.com/premium_photo-1691030255048-0880e06d3b81?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Client"
+                    className="inline-block h-10 w-10 rounded-full ring-2 ring-white dark:ring-slate-900 object-cover"
+                  />
+                </div>
+                <div>
+                  <p className="font-bold text-xs sm:text-sm leading-tight">
+                    Trusted by brands across {city}
+                  </p>
+                  <div className="flex items-center gap-1 text-amber-400 mt-0.5">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-3.5 h-3.5 fill-amber-400 text-amber-400" />
+                    ))}
+                    <span className="text-slate-500 dark:text-slate-400 text-xs ml-1 font-semibold">
+                      5.0
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
 
-    {/* Social Proof */}
-    <FadeUp delay={0.2}>
-      <div className="flex flex-wrap justify-center gap-8 text-sm text-slate-500 dark:text-slate-400">
-        {[
-          ["150+", "Projects Delivered"],
-          ["4.9★", "Client Rating"],
-          ["48 Hrs", "First Preview"],
-        ].map(([num, label]) => (
-          <div key={label} className="flex flex-col items-center">
-            <span className="text-2xl font-black text-slate-900 dark:text-white">
-              {num}
-            </span>
-            <span>{label}</span>
+            {/* Quick Metrics */}
+            <div className="flex gap-8 pt-4 border-t border-slate-200 dark:border-slate-800">
+              <div>
+                <p className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 text-center">
+                  {data.stats?.completedProjects || 50}+
+                </p>
+                <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
+                  Projects Delivered
+                </p>
+              </div>
+              <div className="border-l border-slate-200 dark:border-slate-800 pl-8">
+                <p className="text-2xl font-extrabold text-indigo-600 dark:text-indigo-400 text-center">
+                  {data.stats?.yearsExperience || 3}+
+                </p>
+                <p className="text-xs text-slate-500 font-semibold uppercase tracking-wider">
+                  Years Experience
+                </p>
+              </div>
+            </div>
+
           </div>
-        ))}
+
+          {/* Right Column: Hero Visual */}
+          <div className="md:w-1/2 flex justify-center relative">
+            <div className="relative group w-full max-w-md">
+              <div className="absolute -inset-1 bg-gradient-to-r from-indigo-500 to-emerald-500 rounded-2xl blur-lg opacity-30 group-hover:opacity-65 transition duration-500"></div>
+              <Image
+                height={450}
+                width={450}
+                src={data.images?.[0] || '/Personal_Image.jpeg'}
+                alt={primaryKeyword}
+                className="relative object-cover object-top rounded-2xl border border-slate-200 dark:border-slate-800 shadow-2xl w-full h-[400px]"
+                priority
+              />
+            </div>
+          </div>
+
+        </div>
       </div>
-    </FadeUp>
 
-    {/* CTA */}
-    <FadeUp delay={0.26}>
-      <div className="flex flex-wrap justify-center gap-4 mt-2">
-        <motion.a
-          href={WA_LINK}
-          target="_blank"
-          rel="noopener noreferrer"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-2 rounded-xl bg-[#25D366] px-7 py-4 font-bold text-white shadow-lg shadow-green-300/30 dark:shadow-green-500/20 text-sm"
-        >
-          <FaWhatsapp size={20} /> WhatsApp Us
-        </motion.a>
-
-        <motion.button
-          onClick={scrollToForm}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-          className="flex items-center gap-2 rounded-xl border border-slate-300 dark:border-white/15 bg-white dark:bg-white/5 px-7 py-4 font-bold text-slate-900 dark:text-white text-sm backdrop-blur-sm shadow-sm dark:shadow-none hover:border-blue-400"
-        >
-          <FaRocket className="text-blue-600 dark:text-blue-400" />
-          Get Free Quote
-        </motion.button>
-      </div>
-    </FadeUp>
-
-    {/* Urgency */}
-    <FadeUp delay={0.32}>
-      <p className="text-sm font-semibold text-orange-600 dark:text-amber-400">
-        🔥 Only 3 project slots available this month — Book your free consultation today.
-      </p>
-    </FadeUp>
-  </div>
-</section>
-  );
+      <FeaturedProject />
+  
+      <Pricing />
+     
+    </main>
+  )
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -427,139 +459,139 @@ function LocationServices() {
 // ═══════════════════════════════════════════════════════════════════════════
 // 6. CONTACT FORM
 // ═══════════════════════════════════════════════════════════════════════════
-function ContactForm() {
-  const [submitted, setSubmitted] = useState(false);
+// function ContactForm() {
+//   const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const fd = new FormData(e.target);
-    const text = encodeURIComponent(
-      `🙏 Hello Shivansh!\n\nName: ${fd.get("name")}\nCity: ${fd.get("city")}\nService: ${fd.get("interested")}\nMessage: ${fd.get("message")}\n\nSent via website.`
-    );
-    window.open(`${WA_LINK}?text=${text}`, "_blank");
-    setSubmitted(true);
-  };
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     const fd = new FormData(e.target);
+//     const text = encodeURIComponent(
+//       `🙏 Hello Shivansh!\n\nName: ${fd.get("name")}\nCity: ${fd.get("city")}\nService: ${fd.get("interested")}\nMessage: ${fd.get("message")}\n\nSent via website.`
+//     );
+//     window.open(`${WA_LINK}?text=${text}`, "_blank");
+//     setSubmitted(true);
+//   };
 
-  return (
-    <section id="contact-form" className="py-20 px-5 bg-white dark:bg-[#0a0f1e]">
-      <FadeUp className="text-center mb-10">
-        <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
-          Let's Build Your Website Today
-        </h2>
-        <p className="mt-3 text-gray-500 dark:text-slate-400">
-          Fill the form — get a response within <strong className="text-gray-700 dark:text-white">2 hours</strong> on WhatsApp.
-        </p>
-      </FadeUp>
+//   return (
+//     <section id="contact-form" className="py-20 px-5 bg-white dark:bg-[#0a0f1e]">
+//       <FadeUp className="text-center mb-10">
+//         <h2 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white">
+//           Let's Build Your Website Today
+//         </h2>
+//         <p className="mt-3 text-gray-500 dark:text-slate-400">
+//           Fill the form — get a response within <strong className="text-gray-700 dark:text-white">2 hours</strong> on WhatsApp.
+//         </p>
+//       </FadeUp>
 
-      <div className="mx-auto max-w-5xl rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-gray-100 dark:border-white/8">
-        {/* left panel */}
-        <div className="md:w-5/12 bg-gradient-to-br from-blue-700 to-blue-900 p-8 md:p-10 text-white flex flex-col justify-between gap-8">
-          <div className="space-y-5">
-            <h3 className="text-2xl font-black leading-snug">Ready to grow?<br />Let's talk.</h3>
-            <p className="text-blue-100 text-sm leading-relaxed">
-              Whether it's your first website or a full digital revamp — I'll help you get it right, fast.
-            </p>
-            {[
-              ["📍", "Saharanpur, UP — Serving all India"],
-              ["⏰", "Reply within 2 hours, Mon–Sat"],
-              ["💳", "EMI available on all plans"],
-            ].map(([icon, text]) => (
-              <div key={text} className="flex items-start gap-2.5 text-sm text-blue-100">
-                <span>{icon}</span>
-                <span>{text}</span>
-              </div>
-            ))}
-          </div>
-          <a
-            href={WA_LINK}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-4 font-bold text-white text-sm hover:bg-[#1ebe5d] transition-colors"
-          >
-            <FaWhatsapp size={20} /> Direct WhatsApp Chat
-          </a>
-        </div>
+//       <div className="mx-auto max-w-5xl rounded-2xl overflow-hidden shadow-2xl flex flex-col md:flex-row border border-gray-100 dark:border-white/8">
+//         {/* left panel */}
+//         <div className="md:w-5/12 bg-gradient-to-br from-blue-700 to-blue-900 p-8 md:p-10 text-white flex flex-col justify-between gap-8">
+//           <div className="space-y-5">
+//             <h3 className="text-2xl font-black leading-snug">Ready to grow?<br />Let's talk.</h3>
+//             <p className="text-blue-100 text-sm leading-relaxed">
+//               Whether it's your first website or a full digital revamp — I'll help you get it right, fast.
+//             </p>
+//             {[
+//               ["📍", "Saharanpur, UP — Serving all India"],
+//               ["⏰", "Reply within 2 hours, Mon–Sat"],
+//               ["💳", "EMI available on all plans"],
+//             ].map(([icon, text]) => (
+//               <div key={text} className="flex items-start gap-2.5 text-sm text-blue-100">
+//                 <span>{icon}</span>
+//                 <span>{text}</span>
+//               </div>
+//             ))}
+//           </div>
+//           <a
+//             href={WA_LINK}
+//             target="_blank"
+//             rel="noopener noreferrer"
+//             className="flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-4 font-bold text-white text-sm hover:bg-[#1ebe5d] transition-colors"
+//           >
+//             <FaWhatsapp size={20} /> Direct WhatsApp Chat
+//           </a>
+//         </div>
 
-        {/* form */}
-        <form
-          onSubmit={handleSubmit}
-          className="md:w-7/12 p-8 md:p-10 bg-gray-50 dark:bg-[#0d1527] space-y-5"
-        >
-          {submitted ? (
-            <div className="h-full flex flex-col items-center justify-center text-center gap-3 py-10">
-              <FaCheckCircle className="text-green-500" size={40} />
-              <p className="text-xl font-black text-gray-900 dark:text-white">WhatsApp खुल गया!</p>
-              <p className="text-sm text-gray-500 dark:text-slate-400">Send the message — I'll reply within 2 hours.</p>
-            </div>
-          ) : (
-            <>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                {[["name", "Your Name *", "text"], ["city", "Your City *", "text"]].map(([name, ph, type]) => (
-                  <input
-                    key={name}
-                    name={name}
-                    type={type}
-                    placeholder={ph}
-                    required
-                    className="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3.5 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-                  />
-                ))}
-              </div>
-              <select
-                name="interested"
-                className="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3.5 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
-              >
-                <option>Business Website — ₹11,999</option>
-                <option>E-Commerce Store — ₹24,999</option>
-                <option>Local SEO Package — ₹5,999/mo</option>
-                <option>I need a custom quote</option>
-              </select>
-              <textarea
-                name="message"
-                rows={3}
-                placeholder="Briefly describe your business (optional)"
-                className="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3.5 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
-              />
-              <button
-                type="submit"
-                className="w-full rounded-xl bg-blue-600 hover:bg-blue-700 py-4 font-black text-white text-sm transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-500/25"
-              >
-                🚀 Send Enquiry via WhatsApp
-              </button>
-              <p className="text-center text-xs text-gray-400 dark:text-slate-500">
-                No spam. No cold calls. Just a friendly reply from Shivansh.
-              </p>
-            </>
-          )}
-        </form>
-      </div>
-    </section>
-  );
-}
+//         {/* form */}
+//         <form
+//           onSubmit={handleSubmit}
+//           className="md:w-7/12 p-8 md:p-10 bg-gray-50 dark:bg-[#0d1527] space-y-5"
+//         >
+//           {submitted ? (
+//             <div className="h-full flex flex-col items-center justify-center text-center gap-3 py-10">
+//               <FaCheckCircle className="text-green-500" size={40} />
+//               <p className="text-xl font-black text-gray-900 dark:text-white">WhatsApp खुल गया!</p>
+//               <p className="text-sm text-gray-500 dark:text-slate-400">Send the message — I'll reply within 2 hours.</p>
+//             </div>
+//           ) : (
+//             <>
+//               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+//                 {[["name", "Your Name *", "text"], ["city", "Your City *", "text"]].map(([name, ph, type]) => (
+//                   <input
+//                     key={name}
+//                     name={name}
+//                     type={type}
+//                     placeholder={ph}
+//                     required
+//                     className="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3.5 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+//                   />
+//                 ))}
+//               </div>
+//               <select
+//                 name="interested"
+//                 className="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3.5 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-blue-500 transition"
+//               >
+//                 <option>Business Website — ₹11,999</option>
+//                 <option>E-Commerce Store — ₹24,999</option>
+//                 <option>Local SEO Package — ₹5,999/mo</option>
+//                 <option>I need a custom quote</option>
+//               </select>
+//               <textarea
+//                 name="message"
+//                 rows={3}
+//                 placeholder="Briefly describe your business (optional)"
+//                 className="w-full rounded-xl border border-gray-200 dark:border-white/10 bg-white dark:bg-white/5 px-4 py-3.5 text-sm text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition resize-none"
+//               />
+//               <button
+//                 type="submit"
+//                 className="w-full rounded-xl bg-blue-600 hover:bg-blue-700 py-4 font-black text-white text-sm transition-all hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-blue-500/25"
+//               >
+//                 🚀 Send Enquiry via WhatsApp
+//               </button>
+//               <p className="text-center text-xs text-gray-400 dark:text-slate-500">
+//                 No spam. No cold calls. Just a friendly reply from Shivansh.
+//               </p>
+//             </>
+//           )}
+//         </form>
+//       </div>
+//     </section>
+//   );
+// }
 
 // ═══════════════════════════════════════════════════════════════════════════
 // 7. STICKY CTA BAR (mobile)
 // ═══════════════════════════════════════════════════════════════════════════
-function StickyBar() {
-  return (
-    <div className="fixed bottom-0 inset-x-0 z-50 md:hidden flex gap-3 p-3 bg-white/90 dark:bg-[#0a0f1e]/90 backdrop-blur border-t border-gray-200 dark:border-white/10 shadow-2xl">
-      <a
-        href={WA_LINK}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3.5 font-bold text-white text-sm"
-      >
-        <FaWhatsapp size={18} /> WhatsApp
-      </a>
-      <button
-        onClick={scrollToForm}
-        className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-3.5 font-bold text-white text-sm"
-      >
-        <FaRocket size={16} /> Get Quote
-      </button>
-    </div>
-  );
-}
+// function StickyBar() {
+//   return (
+//     <div className="fixed bottom-0 inset-x-0 z-50 md:hidden flex gap-3 p-3 bg-white/90 dark:bg-[#0a0f1e]/90 backdrop-blur border-t border-gray-200 dark:border-white/10 shadow-2xl">
+//       <a
+//         href={WA_LINK}
+//         target="_blank"
+//         rel="noopener noreferrer"
+//         className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-[#25D366] py-3.5 font-bold text-white text-sm"
+//       >
+//         <FaWhatsapp size={18} /> WhatsApp
+//       </a>
+//       <button
+//         onClick={scrollToForm}
+//         className="flex-1 flex items-center justify-center gap-2 rounded-xl bg-blue-600 py-3.5 font-bold text-white text-sm"
+//       >
+//         <FaRocket size={16} /> Get Quote
+//       </button>
+//     </div>
+//   );
+// }
 
 // ═══════════════════════════════════════════════════════════════════════════
 // EXPORT
@@ -567,15 +599,19 @@ function StickyBar() {
 export default function ServicesUI() {
   return (
     <div className="min-h-screen font-sans bg-white dark:bg-[#0a0f1e] text-gray-900 dark:text-white transition-colors pb-16 md:pb-0">
-      <Hero />
-      <TrustBar />
-      <Services />
+      {/* <Hero /> */}
+
+         <LocationUI />
+
+   
     
       <Reviews />
      
       <LocationServices />
-      <ContactForm />
-      <StickyBar />
+
+       <TechnologyUsed />
+
+
     </div>
   );
 }
