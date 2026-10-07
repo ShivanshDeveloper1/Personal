@@ -45,9 +45,15 @@ export default function Navbar() {
     <nav className="fixed w-full bg-white/80 dark:bg-dark/80 backdrop-blur-sm z-50 border-b border-gray-100 dark:border-gray-800">
       <div className="container max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <Link href="/" className="text-xl font-bold text-primary">
-            Shivansh&trade;
-          </Link>
+         <Link href="/" className="group relative block h-7 overflow-hidden text-xl font-bold text-primary">
+  <span className="block transition-transform duration-300 group-hover:-translate-y-full">
+    Shivansh&trade;
+  </span>
+
+  <span className="absolute inset-0 block translate-y-110 rotate-12 transition-transform duration-300 group-hover:translate-y-0 group-hover:rotate-0">
+    Shivansh&trade;
+  </span>
+</Link>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center space-x-8">

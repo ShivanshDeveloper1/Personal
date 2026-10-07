@@ -222,4 +222,59 @@ export const projects: Project[] = [
       secondaryKeywords: ["Saharanpur Wooden Furniture", "Online Furniture Store"],
     },
   },
+{
+  title: "Pest Control Website in London",
+  bgGradient: "bg-gradient-to-br from-emerald-700 via-green-700 to-teal-800",
+  images: [],
+  description:
+    "Designed and developed a professional pest control website for a London-based pest control company. The website is built to showcase pest control services, help customers find relevant information quickly, and generate enquiries through a clear, mobile-friendly and conversion-focused experience.",
+
+  sections: [
+    {
+      heading: "Professional Pest Control Website",
+      paragraph:
+        "Developed a modern and responsive pest control website for a London-based business, presenting its services in a clear and professional way. The website helps potential customers understand the available pest control solutions and easily navigate to the information they need.",
+    },
+    {
+      heading: "Service-Focused Website Structure",
+      paragraph:
+        "Created an organized website structure to showcase different pest control services and make it easier for customers to find relevant solutions. Clear service sections, calls to action, and accessible contact options help turn website visitors into potential enquiries.",
+    },
+    {
+      heading: "Mobile-Friendly & Conversion-Focused Design",
+      paragraph:
+        "Designed the website to provide a smooth experience across desktop, tablet, and mobile devices. The responsive layout, clear navigation, strong calls to action, and easy-to-find contact information help customers quickly get in touch with the pest control company.",
+    },
+  ],
+
+  details: ["Updated recently", "Live Website"],
+
+  categories: ["Pest Control", "Business", "Local Services"],
+
+  technologies: [
+    "React",
+    "Next.js",
+    "Node.js",
+    "TanStack Query",
+    "Nginx"
+  ],
+
+  githubLink: "",
+  demoLink: "https://www.speedopestcontrolltd.co.uk/",
+  image: "/projects/pest-control-website-london.jpg",
+
+  city: "London",
+  flagship: false,
+
+  seo: {
+    secondaryKeywords: [
+      "Pest Control Website London",
+      "London Pest Control Website",
+      "Pest Control Company Website",
+      "Pest Control Web Design"
+    ],
+  },
+}
+
+
 ];
