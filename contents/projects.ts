@@ -187,41 +187,54 @@ export const projects: Project[] = [
     },
   },
 
-  {
-    title: "Saharanpur Furniture Business",
-    bgGradient: "bg-gradient-to-br from-amber-700 via-orange-700 to-yellow-800",
-    images: [],
-    description:
-      "Built a modern furniture business website designed to showcase and manage a wide range of furniture products. The platform allows the business to upload products with detailed information, organize furniture into categories, and provide customers with a smooth and responsive browsing experience.",
-    sections: [
-      {
-        heading: "Modern Furniture Product Showcase",
-        paragraph:
-          "Developed a modern and responsive furniture website that allows customers to explore a wide range of furniture products through a clean and visually appealing interface. Products are presented with images, descriptions, categories, and important details to make browsing easier for customers.",
-      },
-      {
-        heading: "Easy Furniture Product Management",
-        paragraph:
-          "Built the platform to make it simple for the business to upload and manage furniture products. The system supports product information such as names, images, descriptions, categories, and other important details, making it easier to keep the online furniture catalog updated.",
-      },
-      {
-        heading: "Responsive & User-Friendly Experience",
-        paragraph:
-          "Designed the website to provide a smooth experience across desktop, tablet, and mobile devices. The clean layout and organized product presentation help customers quickly discover furniture and explore products that match their needs.",
-      },
-    ],
-    details: ["Updated recently", "Live Website"],
-    categories: ["Furniture", "Business", "E-Commerce"],
-    technologies: ["React", "Next.js", "Nginx", "TanStack Query", "Node.js"],
-    githubLink: "https://github.com/ShivanshDeveloper1/Furniture_business.git",
-    demoLink: "https://furniture-business.onrender.com",
-    image: "/projects/furniture.png",
-    city: "Saharanpur",
-    flagship: false,
-    seo: {
-      secondaryKeywords: ["Saharanpur Wooden Furniture", "Online Furniture Store"],
+{
+  title: "Book Your Navratri Anushthan",
+  bgGradient: "bg-gradient-to-br from-amber-700 via-orange-700 to-yellow-800",
+  images: [],
+  description:
+    "Built Chants & Bells, a guided spiritual platform that helps devotees perform their own Navratri Anushthan with clarity and confidence. The website provides step-by-step video guidance, Sanskrit mantras, Hindi instructions, and ritual preparation support, helping users follow traditional pooja practices at their own pace, from Sankalp and offerings to prayers and completion.",
+
+  sections: [
+    {
+      heading: "Guided Navratri Anushthan Experience",
+      paragraph:
+        "Developed a dedicated platform that guides devotees through the Navratri Anushthan with professionally recorded videos, Hindi instructions, and Sanskrit mantras. Users can follow the rituals step by step and perform their own pooja with greater clarity, confidence, and convenience.",
     },
+    {
+      heading: "Step-by-Step Ritual Guidance",
+      paragraph:
+        "Designed a structured learning experience covering daily guided pooja, Devi Abhishek, Durga Saptashati Paath, and Devi Hawan Vidhi. Users can pause, rewind, repeat instructions, and continue at their own pace, making it easier to follow each ritual without confusion.",
+    },
+    {
+      heading: "Seamless Booking & Video Access",
+      paragraph:
+        "Built a user-friendly journey that helps visitors understand the Anushthan, preview the guided experience, explore what is included, and book their participation. Login and dedicated video access help users return to their purchased content and continue their spiritual journey.",
+    },
+    {
+      heading: "Conversion-Focused & Responsive Design",
+      paragraph:
+        "Created a responsive landing page that communicates the platform's value through clear messaging, video previews, structured content, FAQs, and prominent booking calls to action. The design helps visitors understand how the guided Anushthan works and encourages them to take the next step with confidence.",
+    },
+  ],
+
+  details: ["Live Website", "Guided Spiritual Experience"],
+  categories: ["Spirituality", "Booking Platform", "Video Platform"],
+  technologies: ["React", "Next.js", "Node.js", "Nginx"],
+  githubLink: "https://github.com/ShivanshDeveloper1/Chants-bells.git",
+  demoLink: "https://www.chantsandbells.com",
+  image: "/projects/furniture.png",
+  city: "Saharanpur",
+  flagship: false,
+  seo: {
+    secondaryKeywords: [
+      "Online Navratri Anushthan",
+      "Guided Navratri Pooja",
+      "Durga Saptashati Paath",
+      "Online Pooja Guidance",
+      "Navratri Pooja Vidhi",
+    ],
   },
+},
 {
   title: "Pest Control Website in London",
   bgGradient: "bg-gradient-to-br from-emerald-700 via-green-700 to-teal-800",
