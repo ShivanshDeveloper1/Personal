@@ -48,10 +48,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-const anton = Anton({
-    subsets: ["latin"],
-  weight: "400",
-})
+
 
 export const metadata: Metadata = {
     title: {

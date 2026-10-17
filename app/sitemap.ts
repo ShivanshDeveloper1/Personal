@@ -1,20 +1,11 @@
-// app/sitemap.js
+// app/sitemap.ts
 import { MetadataRoute } from "next";
-import { locations } from "@/data/locations"; // Import your city data
+import { locations } from "@/data/locations";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://webcontractor.in"; // change to your real domain
+  const baseUrl = "https://webcontractor.in";
 
-
-
-  const locationUrls = locations.map((loc) => ({
-    url: `${baseUrl}/locations/${loc.slug}`,
-    lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.9, // High priority because these are your main landing pages
-  }));
-
-const staticPages = [
+  const staticPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
       lastModified: new Date(),
@@ -22,7 +13,13 @@ const staticPages = [
       priority: 1.0,
     },
     {
-      url: `${baseUrl}/service`,
+      url: `${baseUrl}/service/web-development`,
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/service/social-media-service`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
@@ -45,7 +42,7 @@ const staticPages = [
       changeFrequency: "yearly",
       priority: 0.5,
     },
-        {
+    {
       url: `${baseUrl}/download`,
       lastModified: new Date(),
       changeFrequency: "yearly",
@@ -53,13 +50,12 @@ const staticPages = [
     },
   ];
 
+  const locationUrls: MetadataRoute.Sitemap = locations.map((loc) => ({
+    url: `${baseUrl}/locations/${loc.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.9,
+  }));
 
-
-  // 3. Combine them all into one array
   return [...staticPages, ...locationUrls];
 }
-
-
-
-
-  
