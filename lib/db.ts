@@ -1,8 +1,10 @@
+import dns from "node:dns";
 import mongoose from "mongoose";
 
-const MONGODB_URI = process.env.MONGODB_URI!;
+const MONGODB_URI = process.env.MONGODB_URI;
+
 if (!MONGODB_URI) {
-  throw new Error("❌ Please define MONGO_URI in environment variables");
+  throw new Error("Please define MONGODB_URI in your environment variables");
 }
 
 type MongooseCache = {
@@ -10,39 +12,34 @@ type MongooseCache = {
   promise: Promise<typeof mongoose> | null;
 };
 
-// @ts-ignore
-let cached: MongooseCache = global.mongoose;
-
-if (!cached) {
-  // @ts-ignore
-  cached = global.mongoose = { conn: null, promise: null };
+declare global {
+  var mongoose: MongooseCache | undefined;
 }
 
+dns.setServers(["8.8.8.8", "1.1.1.1"]);
 
+const cached =
+  global.mongoose ??
+  (global.mongoose = { conn: null, promise: null });
 
 export default async function dbConnect() {
-  // console.log("Trying to connect to MongoDB...");
-  // console.log("Current DB:", mongoose.connection.db?.databaseName);
-
-  if (cached.conn) {
-    // console.log("Using cached connection");
+  if (cached.conn && mongoose.connection.readyState === 1) {
     return cached.conn;
   }
 
   if (!cached.promise) {
-    // console.log("Creating new connection...");
-    // console.log("URI:", MONGODB_URI);
-
-    cached.promise = mongoose.connect(MONGODB_URI, {
-      dbName: "portfolio",
-      bufferCommands: false,
-    });
+    cached.promise = mongoose
+      .connect(MONGODB_URI, {
+        dbName: "portfolio",
+        bufferCommands: false,
+        serverSelectionTimeoutMS: 10000,
+      })
+      .catch((error) => {
+        cached.promise = null;
+        throw error;
+      });
   }
 
   cached.conn = await cached.promise;
-
-  // console.log("✅ Connected to DB:", cached.conn.connection.name);
-  // console.log("Collections:", Object.keys(cached.conn.connection.collections));
-
   return cached.conn;
 }
