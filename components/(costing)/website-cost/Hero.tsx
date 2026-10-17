@@ -54,7 +54,7 @@ export default function HeroAnimation() {
     selectedServices.reduce((sum, service) => sum + service.Price, 0);
 
   return (
-    <main className="bg-slate-50 dark:bg-slate-950 min-h-screen text-slate-900 dark:text-slate-100 transition-colors duration-300">
+    <main className="bg-slate-50 dark:bg-slate-950 min-h-screen text-slate-900 dark:text-slate-100 transition-colors duration-300 mt-6">
       {/* HERO SECTION */}
       <motion.div
         variants={containerVariants}

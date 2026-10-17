@@ -1,5 +1,6 @@
 import ServicesUI from "@/app/components/ClientComponent";
 
+
 // ─── SEO METADATA ─────────────────────────────────────────────────────────────
 export const metadata = {
   metadataBase: new URL("https://webcontractor.in"), // ← replace with your domain
@@ -55,7 +56,14 @@ const jsonLd = {
       url: "https://webcontractor.in",
       telephone: "+917618550475",
       priceRange: "₹₹",
-      image: "webcontractor.in/og-image.jpg",
+   images: [
+  {
+    url: "https://webcontractor.in/og-image.jpg",
+    width: 1200,
+    height: 630,
+    alt: "Best Web Developer in Saharanpur",
+  },
+],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Saharanpur",
@@ -118,21 +126,15 @@ const jsonLd = {
           },
         ],
       },
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: "4.9",
-        reviewCount: "120",
-        bestRating: "5",
-        worstRating: "1",
-      },
+  
     },
     {
       "@type": "WebSite",
-      "@id": "webcontractor.in/#website",
-      url: "webcontractor.in",
+      "@id": "https://webcontractor.in/#website",
+      url: "https://webcontractor.in",
       name: "Shivansh Web Services",
       inLanguage: "en-IN",
-      publisher: { "@id": "webcontractor.in/#business" },
+      publisher: { "@id": "https://webcontractor.in/#business" },
     },
   ],
 };
@@ -148,6 +150,7 @@ export default function ServicesPage() {
       />
       <main>
         <ServicesUI />
+      
       </main>
     </>
   );
