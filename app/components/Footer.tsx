@@ -46,7 +46,7 @@ export default function Footer() {
         <h1
           className="select-none whitespace-nowrap bg-gradient-to-r from-orange-600 via-red-600 to-amber-700
           bg-clip-text text-[19vw] font-black uppercase leading-[0.85] tracking-tighter text-transparent
-          drop-shadow-sm dark:from-orange-500 dark:via-red-500 dark:to-amber-500 md:text-[21.2vw]"
+          drop-shadow-sm dark:from-orange-500 dark:via-red-500 dark:to-amber-500 md:text-[21.2vw] pointer-events-none"
         >
           WEBSITE
         </h1>
