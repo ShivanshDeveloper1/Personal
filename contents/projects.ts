@@ -4,6 +4,7 @@ export const projects: Project[] = [
   {
     title: "Uhealth Pharma Business",
     bgGradient: "bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700",
+    slug: "uhelth-pharma-business",
     images: [],
     description:
       "Built a fully functional online product-selling website for Uhealth Pharma, featuring secure Razorpay payment integration, an admin dashboard, product management, and a responsive, user-friendly interface. The platform enables customers to browse and purchase products online, while the admin dashboard provides tools to manage products, orders, and website content efficiently.",
@@ -39,6 +40,7 @@ export const projects: Project[] = [
   {
     title: "Real Estate Price Intelligence Platform (Saharanpur)",
     bgGradient: "bg-gradient-to-br from-emerald-600 via-teal-600 to-cyan-700",
+    slug: "real-estate-price-intelligence",
     images: [],
     description:
       "Built a hyperlocal real estate platform that compares government circle rates with actual market prices. This helps buyers and investors make informed decisions and increases trust and traffic in the local property market.",
@@ -73,7 +75,9 @@ export const projects: Project[] = [
   },
   {
     title: "Complete Digital Management System for Coaching Institute",
+    slug:'digital-management',
     bgGradient: "bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-700",
+    
     images: [],
     description:
       "Built a full-stack dashboard system to manage students, employees, and daily operations for a 20+ year-old coaching institute. Improved operational efficiency and streamlined communication with automated tools.",
@@ -81,6 +85,7 @@ export const projects: Project[] = [
     details: ["Updated recently", "Live Operations"],
     categories: ["Management System", "Education", "Dashboard"],
     technologies: ["React", "Node.js", "MongoDB", "Socket.io"],
+    slug: "digital-management-software-for-coahcing-business",
     githubLink: "https://github.com/ShivanshDeveloper1/rapti.git",
     demoLink: "https://rapticomputer.com",
     image: "/projects/task-manager.png",
@@ -94,6 +99,7 @@ export const projects: Project[] = [
   {
     title: "Modern Website for 25+ Year Old Coaching Institute",
     bgGradient: "bg-gradient-to-br from-indigo-600 via-violet-600 to-purple-800",
+    slug:'saharanpur-biggest-coahcing-institute-Abcinstitute',
     images: [],
     description:
       "Redesigned and modernized the institute’s website with dynamic result sections, blogs, and improved user experience, helping increase student trust and inquiries.",
@@ -113,6 +119,7 @@ export const projects: Project[] = [
     {
     title: "SEO-Driven Blog & Traffic Growth Platform",
     bgGradient: "bg-gradient-to-br from-purple-600 via-pink-600 to-rose-700",
+    slug: "seo-driven-blog",
     images: [],
     description:
       "Built a content-driven website optimized for SEO that attracts consistent organic traffic and increases brand visibility in the local market.",
@@ -132,6 +139,7 @@ export const projects: Project[] = [
     {
     title: "AI Chatbot",
     bgGradient: "bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-700",
+    slug: "Ai-Chatbot",
     images: [],
     description:
       "An AI-powered chatbot that makes the chatbot creation process easy. Built using the Gemini API and Next.js, it offers powerful features. This project allows users to easily create personalized chatbots for their business.",
@@ -151,6 +159,7 @@ export const projects: Project[] = [
   {
     title: "Coaching Management System for High-Volume Institute",
     bgGradient: "bg-gradient-to-br from-amber-600 via-orange-600 to-red-700",
+    slug: "coacing-management",
     images: [],
     description:
       "A full-featured web platform built for a commerce coaching institute handling a large number of students with limited staff. The system streamlines operations like attendance tracking, results, quizzes, and student management — reducing manual work and improving efficiency.",
@@ -170,6 +179,7 @@ export const projects: Project[] = [
   {
     title: "AI-Powered Dating Platform",
     bgGradient: "bg-gradient-to-br from-rose-600 via-pink-600 to-fuchsia-700",
+    slug:'Ai-powered-dating-platform',
     images: [],
     description:
       "Developed a real-time dating platform with AI-powered interactions and live chat features, designed to increase engagement and user retention compared to traditional dating apps.",
@@ -190,6 +200,7 @@ export const projects: Project[] = [
 {
   title: "Book Your Navratri Anushthan",
   bgGradient: "bg-gradient-to-br from-amber-700 via-orange-700 to-yellow-800",
+  slug: "book-navratri-anusthan",
   images: [],
   description:
     "Built Chants & Bells, a guided spiritual platform that helps devotees perform their own Navratri Anushthan with clarity and confidence. The website provides step-by-step video guidance, Sanskrit mantras, Hindi instructions, and ritual preparation support, helping users follow traditional pooja practices at their own pace, from Sankalp and offerings to prayers and completion.",
@@ -238,6 +249,7 @@ export const projects: Project[] = [
 {
   title: "Pest Control Website in London",
   bgGradient: "bg-gradient-to-br from-emerald-700 via-green-700 to-teal-800",
+  slug:'pest-control-website',
   images: [],
   description:
     "Designed and developed a professional pest control website for a London-based pest control company. The website is built to showcase pest control services, help customers find relevant information quickly, and generate enquiries through a clear, mobile-friendly and conversion-focused experience.",

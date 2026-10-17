@@ -1,5 +1,6 @@
 export interface Project {
   title: string;
+  slug:string;
   description: string;
   technologies: string[];
   githubLink: string;

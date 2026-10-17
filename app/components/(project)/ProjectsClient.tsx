@@ -2,11 +2,10 @@
 
 import { projects } from "@/contents/projects";
 import Image from "next/image";
+import Link from "next/link";
 import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
 import { fadeInUp, staggerContainer } from "@/utils/animations";
-import { useState } from "react";
-import ProjectOverview from "@/components/(ProjectOverview)/ProjectOverview";
 
 // Fallback gradient palette for dynamic card backgrounds
 const DEFAULT_GRADIENTS = [
@@ -18,21 +17,17 @@ const DEFAULT_GRADIENTS = [
 ];
 
 export default function ProjectsClient() {
-  const [selectedProject, setSelectedProject] = useState(null);
-
-  // If a project card was clicked, show the overview layout instead
-  if (selectedProject) {
-    return (
-      <ProjectOverview
-        project={selectedProject}
-        onBack={() => setSelectedProject(null)}
-      />
-    );
-  }
+  const handleExternalClick = (
+    e: React.MouseEvent<HTMLButtonElement>,
+    url: string
+  ) => {
+    e.preventDefault(); // Prevents <Link> navigation
+    e.stopPropagation(); // Stops event bubbling to the outer <Link>
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
 
   return (
     <div className="container max-w-7xl mx-auto py-16 px-4">
-      
       {/* Header Section */}
       <motion.h1
         className="text-4xl pt-24 md:text-5xl font-extrabold mb-4 text-center bg-gradient-to-r from-purple-500 via-indigo-500 to-blue-500 bg-clip-text text-transparent font-jakarta"
@@ -52,7 +47,7 @@ export default function ProjectsClient() {
         A selection of real-world applications, localized enterprise platforms, and automated software architectures built to solve complex business operations.
       </motion.p>
 
-      {/* Projects Grid (Updated to md:grid-cols-2 for the larger premium layout) */}
+      {/* Projects Grid */}
       <motion.div
         className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-12"
         variants={staggerContainer}
@@ -60,99 +55,105 @@ export default function ProjectsClient() {
         animate="animate"
       >
         {projects.map((project, index) => {
-          // Select background color from item property or fallback array
-          const bgStyle = project.bgGradient || DEFAULT_GRADIENTS[index % DEFAULT_GRADIENTS.length];
+          const bgStyle =
+            project.bgGradient ||
+            DEFAULT_GRADIENTS[index % DEFAULT_GRADIENTS.length];
 
           return (
             <motion.div
-              key={index}
-              onClick={() => setSelectedProject(project)}
-              className="group flex flex-col cursor-pointer"
+              key={project.slug || index}
               variants={fadeInUp}
+              className="group flex flex-col"
             >
-              {/* Premium Image Frame with Gradient */}
-              <div
-                className={`relative aspect-[16/10] xl:aspect-[16/9] w-full rounded-3xl overflow-hidden ${bgStyle} p-4 sm:p-6 flex items-center justify-center transition-all duration-300 group-hover:scale-[1.015] shadow-lg`}
+              {/* Outer Card wrapped in Next.js Link */}
+              <Link
+                href={`/projects/${project.slug}`}
+                className="flex flex-col h-full cursor-pointer"
               >
-                {/* Flagship Indicator Pin */}
-                {project.flagship && (
-                  <div className="absolute top-6 left-6 z-20">
-                    <span className="px-3 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg shadow-pink-500/30 tracking-wider uppercase">
-                      🚀 Flagship System
-                    </span>
+                {/* Premium Image Frame with Gradient */}
+                <div
+                  className={`relative aspect-[16/10] xl:aspect-[16/9] w-full rounded-3xl overflow-hidden ${bgStyle} p-4 sm:p-6 flex items-center justify-center transition-all duration-300 group-hover:scale-[1.015] shadow-lg`}
+                >
+                  {/* Flagship Indicator Pin */}
+                  {project.flagship && (
+                    <div className="absolute top-6 left-6 z-20">
+                      <span className="px-3 py-1.5 text-xs font-bold rounded-full bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg shadow-pink-500/30 tracking-wider uppercase">
+                        🚀 Flagship System
+                      </span>
+                    </div>
+                  )}
+
+                  {/* Inner Image Container */}
+                  <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white dark:bg-gray-900">
+                    <Image
+                      src={project.image}
+                      alt={`Screenshot of project: ${project.title}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                      priority={index < 2}
+                    />
                   </div>
-                )}
-
-                {/* Inner Image Container */}
-                <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-white dark:bg-gray-900">
-                  <Image
-                    src={project.image}
-                    alt={`Screenshot of project: ${project.title}`}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    priority={index < 2}
-                  />
-                </div>
-              </div>
-
-              {/* Data Context Area Below Image */}
-              <div className="mt-6 flex flex-col space-y-3 px-1">
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-indigo-500">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 text-sm mt-2 leading-relaxed line-clamp-2">
-                    {project.description}
-                  </p>
                 </div>
 
-                {/* Technologies List */}
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  {project.technologies.slice(0, 5).map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-xs font-medium"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 5 && (
-                    <span className="px-2.5 py-1 bg-gray-50 dark:bg-gray-800/50 text-gray-500 dark:text-gray-400 rounded-md text-xs font-medium">
-                      +{project.technologies.length - 5}
-                    </span>
-                  )}
-                </div>
+                {/* Data Context Area Below Image */}
+                <div className="mt-6 flex flex-col space-y-3 px-1 flex-grow justify-between">
+                  <div>
+                    <h3 className="text-2xl font-bold text-gray-900 dark:text-white transition-colors group-hover:text-indigo-500">
+                      {project.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 text-sm mt-2 leading-relaxed line-clamp-2">
+                      {project.description}
+                    </p>
+                  </div>
 
-                {/* Quick Link Actions */}
-                <div className="flex gap-6 border-t border-gray-100 dark:border-gray-800 pt-4 mt-2">
-                  {project.githubLink && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevents card click from firing
-                        window.open(project.githubLink, "_blank");
-                      }}
-                      className="flex items-center gap-1.5 text-sm font-semibold text-gray-500 hover:text-black dark:hover:text-white transition-colors"
-                    >
-                      <FaGithub className="h-4 w-4" />
-                      <span>Source Code</span>
-                    </button>
-                  )}
+                  {/* Technologies List */}
+                  <div className="flex flex-wrap gap-1.5 pt-1">
+                    {project.technologies.slice(0, 5).map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-2.5 py-1 bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 rounded-md text-xs font-medium"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 5 && (
+                      <span className="px-2.5 py-1 bg-gray-50 dark:bg-gray-800/50 text-gray-500 dark:text-gray-400 rounded-md text-xs font-medium">
+                        +{project.technologies.length - 5}
+                      </span>
+                    )}
+                  </div>
 
-                  {project.demoLink && (
-                    <button
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevents card click from firing
-                        window.open(project.demoLink, "_blank");
-                      }}
-                      className="flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
-                    >
-                      <span>Launch Live</span>
-                      <FaExternalLinkAlt className="h-3.5 w-3.5" />
-                    </button>
-                  )}
+                  {/* Quick Link Actions (Using <button> instead of <a> to avoid nested anchor tags) */}
+                  <div className="flex gap-6 border-t border-gray-100 dark:border-gray-800 pt-4 mt-2">
+                    {project.githubLink && (
+                      <button
+                        type="button"
+                        onClick={(e) =>
+                          handleExternalClick(e, project.githubLink!)
+                        }
+                        className="flex items-center gap-1.5 text-sm font-semibold text-gray-500 hover:text-black dark:hover:text-white transition-colors"
+                      >
+                        <FaGithub className="h-4 w-4" />
+                        <span>Source Code</span>
+                      </button>
+                    )}
+
+                    {project.demoLink && (
+                      <button
+                        type="button"
+                        onClick={(e) =>
+                          handleExternalClick(e, project.demoLink)
+                        }
+                        className="flex items-center gap-1.5 text-sm font-semibold text-indigo-600 hover:text-indigo-700 dark:text-indigo-400 dark:hover:text-indigo-300 transition-colors"
+                      >
+                        <span>Launch Live</span>
+                        <FaExternalLinkAlt className="h-3.5 w-3.5" />
+                      </button>
+                    )}
+                  </div>
                 </div>
-              </div>
+              </Link>
             </motion.div>
           );
         })}

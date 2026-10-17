@@ -1,10 +1,20 @@
 // app/sitemap.ts
 import { MetadataRoute } from "next";
 import { locations } from "@/data/locations";
+import { projects } from "@/contents/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://webcontractor.in";
 
+  // Dynamic project case study pages
+  const projectUrls: MetadataRoute.Sitemap = projects.map((project) => ({
+    url: `${baseUrl}/projects/${project.slug}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  // Static site pages
   const staticPages: MetadataRoute.Sitemap = [
     {
       url: `${baseUrl}/`,
@@ -16,7 +26,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/service/web-development`,
       lastModified: new Date(),
       changeFrequency: "monthly",
-      priority: 0.8,
+      priority: 0.9, // Raised to 0.9 as service pages are key converting landing pages
     },
     {
       url: `${baseUrl}/service/social-media-service`,
@@ -40,7 +50,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: `${baseUrl}/contact`,
       lastModified: new Date(),
       changeFrequency: "yearly",
-      priority: 0.5,
+      priority: 0.6,
     },
     {
       url: `${baseUrl}/download`,
@@ -50,6 +60,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Dynamic local SEO location landing pages
   const locationUrls: MetadataRoute.Sitemap = locations.map((loc) => ({
     url: `${baseUrl}/locations/${loc.slug}`,
     lastModified: new Date(),
@@ -57,5 +68,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.9,
   }));
 
-  return [...staticPages, ...locationUrls];
+  // Combine all route arrays cleanly
+  return [...staticPages, ...projectUrls, ...locationUrls];
 }
