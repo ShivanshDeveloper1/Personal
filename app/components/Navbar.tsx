@@ -38,6 +38,7 @@ export default function Navbar() {
     { href: "/projects", label: "Projects" },
     { href: "/contact", label: "Contact" },
     { href: "/download", label: "Resume" },
+    { href: "/pricing", label: "Pricing" },
     { href: "/blogs", label: "Blogs" },
   ];
 

@@ -16,15 +16,17 @@ import ProjectOverview from "@/components/(ProjectOverview)/ProjectOverview";
 
 // Hyper-Targeted Homepage Metadata
 export const metadata: Metadata = {
-title: "Best Web Developer in Saharanpur | Next.js & MERN Stack", // This overrides the layout default
-  description: "Professional freelance web developer in Saharanpur. Specializing in high-performance Next.js web applications, e-commerce, and advanced SEO strategies.",
+title: "Freelance Web Developer & Next.js Specialist", // This overrides the layout default
+  description: "Freelance web developer building modern websites and full-stack web applications with Next.js, React, and modern web technologies for businesses and growing brands.",
   keywords: [
     "Saharanpur web developer",
     "web developer in Saharanpur",
     "Best Web Developer in Saharanpur",
+   " Next.js developer",
     "web development company",
     "freelance web developer",
     'web design agency',
+   " custom website development",
     "ecommerce website development",
     "custom website design",
     "web development services",

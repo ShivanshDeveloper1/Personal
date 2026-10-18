@@ -34,7 +34,7 @@ export default function Hero() {
             {...fadeInUp}
             transition={{ delay: 0.3 }}
           >
-            Website Developer
+          Freelance Web Developer
           </motion.h1>
 
           {/* H2: Secondary Heading / Introduction */}
