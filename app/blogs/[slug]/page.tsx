@@ -1,5 +1,6 @@
 import React from "react";
 import type { Metadata } from "next";
+import { cache } from "react";
 
 import { notFound } from "next/navigation";
 import { Blog } from "@/models/Blog";
@@ -8,6 +9,7 @@ import path from "path";
 import BlogClientWrapper from "@/app/components/(Blog)/BlogClientWrapper";
 
 // --- SMART PATH CHECKER (The Magic Fix) ---
+export const revalidate = 3600;
 // This function checks the REAL hard drive to see if the file exists.
 // If missing, it returns the default image.
 const getVerifiedPath = (originalPath: string) => {
@@ -47,6 +49,7 @@ const getSeoUrl = (path: string) => {
 };
 
 // --- HELPER 2: For Display (Relative link) ---
+const getPost = cache((slug: string) => Blog.getBySlug(slug));
 const getDisplayUrl = (path: string) => {
   return getVerifiedPath(path);
 };
@@ -56,7 +59,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
   const resolvedParams = await params;
   const decodedSlug = decodeURIComponent(resolvedParams.slug);
 
-  const postData = await Blog.getBySlug(decodedSlug);
+  const postData = await getPost(decodedSlug);
   if (!postData) return { title: "Post Not Found" };
 
   const { metadata } = postData.post;
@@ -104,7 +107,7 @@ const SingleBlogPage = async ({ params }) => {
   const resolvedParams = await params;
   const decodedSlug = decodeURIComponent(resolvedParams.slug);
 
-  const postData = await Blog.getBySlug(decodedSlug);
+  const postData = await getPost(decodedSlug)
   if (!postData) notFound();
 
   const { metadata, body } = postData.post;
@@ -116,6 +119,18 @@ const SingleBlogPage = async ({ params }) => {
     ...metadata,
     featuredImage: { ...metadata.featuredImage, url: displayImageUrl },
   };
+   // Fetch the pillar/cluster/related cards (see Blog.getRelatedBundle)
+  const related = await Blog.getRelatedBundle(metadata);
+
+   // Reuse YOUR existing image checker so broken images fall back to /main.png
+  const withImg = (c: any) => ({ ...c, image: getDisplayUrl(c.image) });
+
+  const relatedForUI = {
+    pillar: related.pillar ? withImg(related.pillar) : null,
+    cluster: related.cluster.map(withImg),
+    more: related.more.map(withImg),
+  };
+
 
   const authorName = metadata.author?.name || "Shivansh";
 
@@ -129,7 +144,7 @@ const SingleBlogPage = async ({ params }) => {
     "author": {
       "@type": "Person",
       "name": authorName,
-      "url": metadata.author?.url || "webcontractor.inwebcontractor.in/about",
+      "url": metadata.author?.url || "https://webcontractor.in/about",
     },
     "publisher": {
       "@type": "Organization",
@@ -184,7 +199,7 @@ const SingleBlogPage = async ({ params }) => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdGraph) }}
       />
-      <BlogClientWrapper metadata={cleanMetadata} body={body} />
+   <BlogClientWrapper metadata={cleanMetadata} body={body} related={relatedForUI} />
     </>
   );
 };

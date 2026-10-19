@@ -60,7 +60,7 @@ export const Featured = ({ initialBlogs = [] }: FeaturedProps) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400">
-            Featured Posts
+            Latest Web Development & SEO Articles
           </h1>
           <p className="text-gray-400 mt-3 text-sm sm:text-base">
             Hand-picked insights and guides to boost your real estate journey

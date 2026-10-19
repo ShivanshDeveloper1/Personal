@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import { FaFacebookF, FaTwitter, FaLink } from "react-icons/fa";
 import { motion } from "framer-motion";
+import Link from "next/link";
 
 // --- HELPER: Handles Links [Text](URL) AND Bold **Text** ---
 const formatText = (text: string) => {
@@ -57,6 +58,14 @@ const formatText = (text: string) => {
   });
 };
 
+type Card = {
+  slug: string; title: string; summary: string; category: string;
+  publishDate: string; readTimeMinutes: number; image: string; imageAlt: string;
+};
+type RelatedData = { pillar: Card | null; cluster: Card[]; more: Card[] };
+
+
+
 // --- GLOBAL DECLARATION FOR INSTAGRAM ---
 declare global {
   interface Window {
@@ -68,12 +77,74 @@ declare global {
   }
 }
 
+
+const MiniCard = ({ card, badge }: { card: Card; badge?: string }) => (
+  <Link
+    href={`/blogs/${card.slug}`}
+    className="group flex gap-3 items-start p-2 -mx-2 rounded-xl hover:bg-gray-50 dark:hover:bg-gray-800/50 transition"
+  >
+    <div className="relative w-20 h-16 shrink-0 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800">
+      {/* sizes="80px" tells Next to download a tiny image, not a huge one */}
+      <Image src={card.image} alt={card.imageAlt} fill sizes="80px" className="object-cover" />
+    </div>
+    <div className="min-w-0">
+      {badge && (
+        <span className="text-[11px] font-semibold uppercase tracking-wide text-purple-600 dark:text-purple-400">
+          {badge}
+        </span>
+      )}
+      <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-2">
+        {card.title}
+      </p>
+      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1">
+        {card.readTimeMinutes} min read
+      </p>
+    </div>
+  </Link>
+);
+
+const BigCard = ({ card }: { card: Card }) => (
+  <Link
+    href={`/blogs/${card.slug}`}
+    className="group flex flex-col rounded-2xl overflow-hidden bg-white dark:bg-gradient-to-br dark:from-[#111827] dark:to-[#0d1321] border border-gray-200 dark:border-gray-800 shadow-lg hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+  >
+    <div className="relative w-full aspect-video">
+      <Image
+        src={card.image}
+        alt={card.imageAlt}
+        fill
+        sizes="(max-width: 768px) 100vw, 33vw"
+        className="object-cover"
+      />
+    </div>
+    <div className="p-5 flex flex-col gap-2 flex-1">
+      {card.category && (
+        <span className="self-start bg-cyan-100 text-cyan-800 dark:bg-cyan-500/20 dark:text-cyan-400 px-3 py-0.5 rounded-full text-xs font-medium">
+          {card.category}
+        </span>
+      )}
+      <h3 className="text-lg font-bold text-gray-900 dark:text-white leading-snug group-hover:text-cyan-600 dark:group-hover:text-cyan-400 transition-colors line-clamp-2">
+        {card.title}
+      </h3>
+      <p className="text-sm text-gray-600 dark:text-gray-400 line-clamp-3">{card.summary}</p>
+      <p className="text-xs text-gray-500 dark:text-gray-500 mt-auto pt-2">
+        {card.publishDate} &bull; {card.readTimeMinutes} min read
+      </p>
+    </div>
+  </Link>
+);
+
+const currentUrl = typeof window !== "undefined" ? window.location.href : `https://webcontractor.in/blogs/${metadata.slug}`;
+
+
 export default function BlogClientWrapper({
   metadata,
   body,
+  related,
 }: {
   metadata: any;
   body: any[];
+   related: RelatedData;
 }) {
   const [currentUrl, setCurrentUrl] = useState("");
 
@@ -359,9 +430,47 @@ export default function BlogClientWrapper({
                  Contact Now
                 </a>
               </div>
+
+              {/* Adding thise */}
+                {(related.pillar || related.cluster.length > 0) && (
+                <div className="p-6 rounded-2xl bg-white dark:bg-gradient-to-br dark:from-[#111827] dark:to-[#0d1321] border border-gray-200 dark:border-gray-800 shadow-lg dark:shadow-xl dark:backdrop-blur-lg">
+                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">
+                    {related.pillar ? "Part of this guide" : "Explore this topic"}
+                  </h3>
+
+                  <div className="space-y-3">
+                    {/* UP link: supporting article → its pillar */}
+                    {related.pillar && <MiniCard card={related.pillar} badge="Complete Guide" />}
+
+                    {/* DOWN / SIDEWAYS links: pillar → supporting, or sibling articles */}
+                    {related.cluster.map((c) => (
+                      <MiniCard key={c.slug} card={c} />
+                    ))}
+                  </div>
+                </div>
+              )}
+
+
+
+
             </div>
           </motion.aside>
         </section>
+
+
+            {/* RECOMMENDED MORE ARTICLES (from relatedSlugs, falls back to same category) */}
+        {related.more.length > 0 && (
+          <section className="mt-16 pt-12 border-t border-gray-200 dark:border-gray-800">
+            <h2 className="text-2xl md:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-600 to-purple-600 dark:from-cyan-400 dark:to-purple-400 mb-8">
+              Recommended Articles
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {related.more.map((c) => (
+                <BigCard key={c.slug} card={c} />
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </main>
   );
