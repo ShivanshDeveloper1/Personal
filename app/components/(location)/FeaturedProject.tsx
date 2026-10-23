@@ -20,7 +20,7 @@ const FeaturedProject = () => {
       {/* Adjusted this container to flex-col on mobile and flex-row on desktop for perfect responsiveness */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
         <h1 className="text-4xl md:text-6xl font-bold font-jakarta max-w-sm leading-tight">
-          Featured Projects
+          Projects
         </h1>
         <p className="flex items-center gap-3 text-sm font-medium cursor-pointer hover:opacity-80 transition-opacity">
           View all Work

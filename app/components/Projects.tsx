@@ -25,7 +25,7 @@ const FeaturedProject = () => {
       {/* Header Section */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6 mb-10">
         <h2 className="text-4xl md:text-6xl font-bold font-jakarta max-w-sm leading-tight text-gray-900 dark:text-white">
-          Featured Projects
+          Projects
         </h2>
         <button 
           onClick={() => router.push('/projects')}
